@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "811926164419",
+    "project_id": "coursework-mindplex",
+    "storage_bucket": "coursework-mindplex.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:811926164419:android:99e96a68236209c283a376",
+        "android_client_info": {
+          "package_name": "com.example.coursework_mindplex"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "811926164419-u2161o26gcq3pg67eppv1b1qcvqnopmp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZsg_MDaWqMCVs_ULp1uDvKUrF6WOxFX0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "811926164419-u2161o26gcq3pg67eppv1b1qcvqnopmp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
