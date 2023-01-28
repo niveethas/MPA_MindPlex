@@ -6,16 +6,39 @@
     android:layout_height="match_parent"
     tools:context=".MainMenu">
 
-    <EditText
-        android:id="@+id/titleText"
+    <TextView
+        android:id="@+id/introQText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginBottom="610dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Hi, what would you like to do today?"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:text="Hi, What would you like to do today?"
+        tools:layout_editor_absoluteX="93dp"
+        tools:layout_editor_absoluteY="43dp" />
+
+    <TextView
+        android:id="@+id/gamesLinkText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Explore Games"
+        android:onClick="gamesClicked"
+        tools:layout_editor_absoluteX="158dp"
+        tools:layout_editor_absoluteY="121dp" />
+
+    <TextView
+        android:id="@+id/talkLinkText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Talk to Someone"
+        android:onClick="talkClicked"
+        tools:layout_editor_absoluteX="153dp"
+        tools:layout_editor_absoluteY="187dp" />
+
+    <TextView
+        android:id="@+id/stressLinkText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="stressManageClicked"
+        android:text="Help Manage Stress"
+        tools:layout_editor_absoluteX="142dp"
+        tools:layout_editor_absoluteY="258dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

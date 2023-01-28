@@ -41,13 +41,13 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/loginButtonSI2"
+        android:id="@+id/cancelButtonSI"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="160dp"
         android:layout_marginBottom="140dp"
         android:background="@drawable/round_grey_btn"
-        android:onClick="loginButtonClicked"
+        android:onClick="cancelButtonClicked"
         android:text="Cancel"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

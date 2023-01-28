@@ -3,6 +3,7 @@ package com.example.coursework_mindplex;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -34,9 +35,8 @@ public class SignInActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             FirebaseUser user = mAuth.getCurrentUser();
-                            Toast.makeText(SignInActivity.this, "Authentication success.",
-                                    Toast.LENGTH_SHORT).show();
-                            //****TO-DO: add activity ******
+                            Intent SIMenu = new Intent(SignInActivity.this, MainMenu.class);
+                            startActivity(SIMenu);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w("MainActivity", "signInWithEmail:failure", task.getException());
@@ -46,7 +46,7 @@ public class SignInActivity extends AppCompatActivity {
         });
     }
 
-    public void signInButtonClicked(View view) {
+    public void loginButtonClicked(View view) {
         EditText email = findViewById(R.id.emailTxtboxSI);
         EditText password = findViewById(R.id.passwordTxtboxSI);
         String sEmail = email.getText().toString();
@@ -54,4 +54,8 @@ public class SignInActivity extends AppCompatActivity {
         signin(sEmail, sPassword);
     }
 
+    public void cancelButtonClicked(View view){
+        Intent SIBack = new Intent(SignInActivity.this, MainActivity.class);
+        startActivity(SIBack);
+    }
 }

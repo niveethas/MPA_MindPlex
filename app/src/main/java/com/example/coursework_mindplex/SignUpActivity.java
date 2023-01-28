@@ -97,13 +97,18 @@ public class SignUpActivity extends AppCompatActivity {
         String sLName = lname.getText().toString();
         if (rpassword.getText().toString() == sPassword) {
             signup(sEmail, sPassword, sFName, sLName);
-        }
-        else{
+        } else {
             Toast.makeText(SignUpActivity.this,
-                "Passwords Do Not Match.",
-                Toast.LENGTH_SHORT).show();
+                    "Passwords Do Not Match.",
+                    Toast.LENGTH_SHORT).show();
         }
     }
+
+    public void SUCancelButtonClicked(View view){
+            Intent SUBack = new Intent(SignUpActivity.this, MainActivity.class);
+            startActivity(SUBack);
+    }
+
 
 
 }
