@@ -10,35 +10,43 @@
         android:id="@+id/introQText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="93dp"
+        android:layout_marginTop="43dp"
         android:text="Hi, What would you like to do today?"
-        tools:layout_editor_absoluteX="93dp"
-        tools:layout_editor_absoluteY="43dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/gamesLinkText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Explore Games"
+        android:layout_marginTop="121dp"
         android:onClick="gamesClicked"
-        tools:layout_editor_absoluteX="158dp"
-        tools:layout_editor_absoluteY="121dp" />
+        android:text="Explore Games"
+        app:layout_constraintEnd_toEndOf="@+id/introQText"
+        app:layout_constraintStart_toStartOf="@+id/introQText"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/talkLinkText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Talk to Someone"
+        android:layout_marginTop="187dp"
         android:onClick="talkClicked"
-        tools:layout_editor_absoluteX="153dp"
-        tools:layout_editor_absoluteY="187dp" />
+        android:text="Talk to Someone"
+        app:layout_constraintEnd_toEndOf="@+id/gamesLinkText"
+        app:layout_constraintStart_toStartOf="@+id/gamesLinkText"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/stressLinkText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="258dp"
         android:onClick="stressManageClicked"
         android:text="Help Manage Stress"
-        tools:layout_editor_absoluteX="142dp"
-        tools:layout_editor_absoluteY="258dp" />
+        app:layout_constraintEnd_toEndOf="@+id/talkLinkText"
+        app:layout_constraintStart_toStartOf="@+id/talkLinkText"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

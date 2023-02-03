@@ -95,7 +95,8 @@ public class SignUpActivity extends AppCompatActivity {
         String sPassword = password.getText().toString();
         String sFName = fname.getText().toString();
         String sLName = lname.getText().toString();
-        if (rpassword.getText().toString() == sPassword) {
+        String sRPassword = rpassword.getText().toString();
+        if (sRPassword.equals(sPassword)) {
             signup(sEmail, sPassword, sFName, sLName);
         } else {
             Toast.makeText(SignUpActivity.this,
