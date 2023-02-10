@@ -6,4 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".CharityInfoActivity">
 
+    <TextView
+        android:id="@+id/charityText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="132dp"
+        android:text="TextView"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="176dp" />
+
+    <TextView
+        android:id="@+id/charityText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="277dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/charityText1"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/charityText1"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

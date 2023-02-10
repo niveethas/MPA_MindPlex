@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Coursework_Mindplex</string>
+    <string name="title_activity_local_charity_map">localCharityMapActivity</string>
 </resources>
