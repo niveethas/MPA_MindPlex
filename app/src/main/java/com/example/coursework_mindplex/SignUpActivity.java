@@ -43,7 +43,6 @@ public class SignUpActivity extends AppCompatActivity {
                                     FirebaseUser user = mAuth.getCurrentUser();
                                     try {
                                         String uid = user.getUid();
-                                        //****TO-DO: add activity ******
                                         Map<String, Object> userDetails = new HashMap<>();
                                         userDetails.put("First Name", firstName);
                                         userDetails.put("Last Name", lastName);

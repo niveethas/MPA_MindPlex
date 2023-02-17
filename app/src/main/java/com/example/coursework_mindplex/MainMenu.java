@@ -29,4 +29,9 @@ public class MainMenu extends AppCompatActivity {
         Intent MMStress = new Intent(MainMenu.this, StressAdviceActivity.class);
         startActivity(MMStress);
     }
+
+    public void manageAccountClicked(View view){
+        Intent MMAccount = new Intent(MainMenu.this, PersonalisationActivity.class);
+        startActivity(MMAccount);
+    }
 }
