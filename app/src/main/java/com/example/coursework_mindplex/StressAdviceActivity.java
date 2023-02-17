@@ -33,6 +33,9 @@ public class StressAdviceActivity extends AppCompatActivity {
     public String[] stressAdvice;
     public List<String> imagesURLs = new ArrayList<>();
     public boolean anxietyAdviceToggle;
+    public List<Integer> usedANums = new ArrayList<>();
+    public List<Integer> usedSNums = new ArrayList<>();
+    public List<Integer> usedINums = new ArrayList<>();
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     StorageReference storageRef;
     FirebaseStorage storage = FirebaseStorage.getInstance();
@@ -45,9 +48,12 @@ public class StressAdviceActivity extends AppCompatActivity {
         FirebaseApp.initializeApp(this);
         mAuth = FirebaseAuth.getInstance();
         storageRef = storage.getReference();
-        ImageView imageView = findViewById(R.id.AdviceImage);
-        Picasso.get().load("https://firebasestorage.googleapis.com/v0/b/coursework-mindplex.appspot.com/o/6531.jpg?alt=media&token=ab19628c-5913-47c5-92c0-cd032c6c12ab").resize(600, 400).into(imageView);
+        getAnxietyAdviceText();
+        getStressAdviceText();
+        getImages();
         displayTexts();
+        displayImages();
+        //CameraX library
     }
 
 
@@ -60,6 +66,16 @@ public class StressAdviceActivity extends AppCompatActivity {
         imagesURLs.add("https://firebasestorage.googleapis.com/v0/b/coursework-mindplex.appspot.com/o/Work_5.jpg?alt=media&token=bfb5dd8b-d88d-42a5-bfc1-0a81ec2fe6a1");
        // ImageView adviceText1 = findViewById(R.id.AnxietyAdvice1);
        // TextView adviceText2 = findViewById(R.id.AnxietyAdvice2);
+    }
+
+    public void displayImages(){
+        ImageView image2 = findViewById(R.id.StressImage);
+        ImageView image1 = findViewById(R.id.AdviceImage);
+        ImageView image3 = findViewById(R.id.infographicImage);
+        Picasso.get().load(imagesURLs.get(imagePick())).resize(600, 400).into(image1);
+        Picasso.get().load(imagesURLs.get(imagePick())).resize(600, 400).into(image2);
+        Picasso.get().load(imagesURLs.get(imagePick())).resize(600, 400).into(image3);
+
     }
 
     public void getAnxietyAdviceText(){
@@ -85,7 +101,6 @@ public class StressAdviceActivity extends AppCompatActivity {
     }
 
     public void getStressAdviceText(){
-        try {
             db.collection("Advice").document("Stress").get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -103,10 +118,7 @@ public class StressAdviceActivity extends AppCompatActivity {
                     }
                 }
             });
-        } catch (Exception exception){
-            Log.d("error niv:",exception.toString());
 
-        }
     }
 
     public void displayTexts() {
@@ -118,11 +130,36 @@ public class StressAdviceActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
-                        String data = document.getString("AnxietyAdvice");
-                        if (data == "True"){
+                        String data = document.getString("Anxiety Advice");
+                        Log.d("SuccessMsg:", data);
+                        if (data == "true"){
                             anxietyAdviceToggle = true;
                         }else{
                             anxietyAdviceToggle = false;
+                        }
+                        TextView adviceText1 = findViewById(R.id.AnxietyAdvice1);
+                        TextView adviceText2 = findViewById(R.id.AnxietyAdvice2);
+                        TextView stressText1 = findViewById(R.id.StressText1);
+                        TextView stressText2 = findViewById(R.id.StressText2);
+                        TextView stressText3 = findViewById(R.id.StressText3);
+
+                        if (anxietyAdviceToggle = true){
+                            stressText1.setText(stressAdvice[stressPick()]);
+                            stressText2.setText(stressAdvice[stressPick()]);
+                            stressText3.setText(stressAdvice[stressPick()]);
+
+                            adviceText1.setText(anxietyAdvice[anxietyPick()]);
+                            adviceText2.setText(anxietyAdvice[anxietyPick()]);
+
+                        }else{
+                            getStressAdviceText();
+                            adviceText1.clearComposingText();
+                            adviceText2.clearComposingText();
+
+                            stressText1.setText(stressAdvice[stressPick()]);
+                            stressText2.setText(stressAdvice[stressPick()]);
+                            stressText3.setText(stressAdvice[stressPick()]);
+
                         }
                     } else {
                         Log.d("MainActivity", "No such document");
@@ -139,41 +176,20 @@ public class StressAdviceActivity extends AppCompatActivity {
 
 
 
-        TextView adviceText1 = findViewById(R.id.AnxietyAdvice1);
-        TextView adviceText2 = findViewById(R.id.AnxietyAdvice2);
-        TextView stressText1 = findViewById(R.id.StressText1);
-        TextView stressText2 = findViewById(R.id.StressText2);
-        TextView stressText3 = findViewById(R.id.StressText3);
-
-
-        if (anxietyAdviceToggle = true){
-            getAnxietyAdviceText();
-            getStressAdviceText();
-            stressText1.setText(stressAdvice[stressPick()]);
-            stressText2.setText(stressAdvice[stressPick()]);
-            stressText3.setText(stressAdvice[stressPick()]);
-
-            adviceText1.setText(stressAdvice[anxietyPick()]);
-            adviceText2.setText(stressAdvice[anxietyPick()]);
-
-        }else{
-            getStressAdviceText();
-            adviceText1.clearComposingText();
-            adviceText2.clearComposingText();
-
-            stressText1.setText(stressAdvice[stressPick()]);
-            stressText2.setText(stressAdvice[stressPick()]);
-            stressText3.setText(stressAdvice[stressPick()]);
-
-        }
     }
 
     public int anxietyPick (){
+        //REFERENCE
         Random r = new Random();
         int low = 0;
         int highA = anxietyAdvice.length;
         int resultA = r.nextInt(highA-low) + low;
-        return resultA;
+        if (usedANums.contains(resultA)) {
+            return anxietyPick();
+        }else {
+            usedANums.add(resultA);
+            return resultA;
+        }
     }
 
     public int stressPick (){
@@ -181,15 +197,25 @@ public class StressAdviceActivity extends AppCompatActivity {
         int low = 0;
         int highB = stressAdvice.length;
         int resultB = r.nextInt(highB-low) + low;
-        return resultB;
+        if (usedSNums.contains(resultB)) {
+            return stressPick();
+        }else {
+            usedSNums.add(resultB);
+            return resultB;
+        }
     }
 
     public int imagePick(){
         Random r = new Random();
         int low = 0;
-        int highB = 6;
-        int resultB = r.nextInt(highB-low) + low;
-        return resultB;
+        int highI = 6;
+        int resultI = r.nextInt(highI-low) + low;
+        if (usedINums.contains(resultI)) {
+            return imagePick();
+        }else {
+            usedINums.add(resultI);
+            return resultI;
+        }
     }
 
 }

@@ -15,6 +15,9 @@ public class MainMenu extends AppCompatActivity {
         setContentView(R.layout.activity_main_menu);
     }
 
+    //**** ADD ON CREATE METHOD *****
+
+
     public void gamesClicked(View view){
         Intent MMGames = new Intent(MainMenu.this, GamesMenu.class);
         startActivity(MMGames);
