@@ -11,6 +11,7 @@
         android:layout_width="358dp"
         android:layout_height="662dp"
         android:layout_marginTop="34dp"
+        android:layout_marginBottom="34dp"
         android:background="@drawable/round_gradient_background"
         android:isScrollContainer="false"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -29,53 +30,77 @@
                 android:id="@+id/AnxietyAdvice1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:layout_gravity="center"
+                android:fontFamily="@font/source_sans_pro"
+                android:includeFontPadding="false"
+                android:padding="10dp"
+                android:text="TextView"
+                android:textAlignment="center" />
 
             <ImageView
+                android:id="@+id/AdviceImage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
-                android:id="@+id/AdviceImage"
                 tools:srcCompat="@tools:sample/avatars" />
 
             <TextView
                 android:id="@+id/StressText1"
                 android:layout_width="match_parent"
                 android:layout_height="91dp"
-                android:text="TextView" />
+                android:fontFamily="@font/source_sans_pro"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="TextView"
+                android:textAlignment="center" />
 
             <ImageView
-                android:scaleType="fitCenter"
-                android:adjustViewBounds="true"
                 android:id="@+id/StressImage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
                 tools:srcCompat="@tools:sample/avatars" />
 
             <TextView
                 android:id="@+id/AnxietyAdvice2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:fontFamily="@font/source_sans_pro"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="TextView"
+                android:textAlignment="center" />
 
             <ImageView
                 android:id="@+id/infographicImage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
                 tools:srcCompat="@tools:sample/avatars" />
 
             <TextView
                 android:id="@+id/StressText2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:fontFamily="@font/source_sans_pro"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="TextView"
+                android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/StressText3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:fontFamily="@font/source_sans_pro"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="TextView"
+                android:textAlignment="center" />
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

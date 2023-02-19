@@ -10,54 +10,139 @@
         android:id="@+id/introQText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="93dp"
-        android:layout_marginTop="43dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="44dp"
+        android:fontFamily="@font/quicksand_bold"
         android:text="Hi, What would you like to do today?"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/gamesLinkText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="121dp"
-        android:onClick="gamesClicked"
-        android:text="Explore Games"
-        app:layout_constraintEnd_toEndOf="@+id/introQText"
-        app:layout_constraintStart_toStartOf="@+id/introQText"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/talkLinkText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="187dp"
-        android:onClick="talkClicked"
-        android:text="Talk to Someone"
-        app:layout_constraintEnd_toEndOf="@+id/gamesLinkText"
-        app:layout_constraintStart_toStartOf="@+id/gamesLinkText"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/stressLinkText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="258dp"
-        android:onClick="stressManageClicked"
-        android:text="Help Manage Stress"
-        app:layout_constraintEnd_toEndOf="@+id/talkLinkText"
-        app:layout_constraintStart_toStartOf="@+id/talkLinkText"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/manageAccBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="128dp"
-        android:layout_marginBottom="44dp"
-        android:text="Manage Account"
-        android:onClick="manageAccountClicked"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="351dp"
+        android:layout_height="590dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="133dp"
+        android:layout_marginBottom="16dp"
+        android:background="@color/main_gold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="220dp"
+            android:layout_height="78dp"
+            android:layout_marginTop="27dp"
+            android:background="@drawable/round_gradient_background"
+            android:clickable="true"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+            app:layout_constraintEnd_toEndOf="@+id/linearLayout2"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/linearLayout2"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/talkLinkText"
+                android:layout_width="99dp"
+                android:layout_height="78dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="1dp"
+                android:fontFamily="@font/source_sans_pro"
+                android:gravity="center_vertical"
+                android:onClick="talkClicked"
+                android:text="Talk to Someone"
+                android:textIsSelectable="true"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.031"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="225dp"
+            android:layout_height="79dp"
+            android:background="@drawable/round_gradient_background"
+            android:clickable="true"
+            app:layout_constraintBottom_toTopOf="@+id/imageView"
+            app:layout_constraintEnd_toEndOf="@+id/imageView"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+            <TextView
+                android:id="@+id/stressLinkText"
+                android:layout_width="108dp"
+                android:layout_height="79dp"
+                android:layout_marginStart="60dp"
+                android:fontFamily="@font/source_sans_pro"
+                android:gravity="center_horizontal|center_vertical"
+                android:onClick="stressManageClicked"
+                android:text="Help Manage Stress"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="218dp"
+            android:layout_height="85dp"
+            android:background="@drawable/round_gradient_background"
+            android:clickable="true"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+            app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/linearLayout"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+            <TextView
+                android:id="@+id/gamesLinkText"
+                android:layout_width="91dp"
+                android:layout_height="86dp"
+                android:layout_marginStart="60dp"
+                android:clickable="true"
+                android:fontFamily="@font/source_sans_pro"
+                android:gravity="center_vertical"
+                android:onClick="gamesClicked"
+                android:text="Explore Games"
+                android:textIsSelectable="true"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="133dp"
+            android:layout_height="90dp"
+            app:layout_constraintBottom_toTopOf="@+id/manageAccBtn"
+            app:layout_constraintEnd_toEndOf="@+id/manageAccBtn"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/manageAccBtn"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <Button
+            android:id="@+id/manageAccBtn"
+            android:layout_width="159dp"
+            android:layout_height="43dp"
+            android:background="@drawable/round_gold_btn"
+            android:onClick="manageAccountClicked"
+            android:padding="5dp"
+            android:paddingEnd="8dp"
+            android:paddingRight="8dp"
+            android:text="Manage Account"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            tools:layout_editor_absoluteX="96dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

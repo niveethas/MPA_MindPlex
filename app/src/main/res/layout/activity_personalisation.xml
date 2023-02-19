@@ -6,52 +6,87 @@
     android:layout_height="match_parent"
     tools:context=".PersonalisationActivity">
 
-    <Switch
-        android:id="@+id/locationSwitch"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="315dp"
+        android:layout_height="550dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="132dp"
+        android:layout_marginBottom="49dp"
+        android:background="@drawable/round_gradient_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Switch
+            android:id="@+id/darkModeSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/source_sans_pro"
+            android:gravity="center|center_horizontal|center_vertical"
+            android:onClick="updateTheme"
+            android:text="Dark Mode"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/cameraSwitch"
+            app:layout_constraintEnd_toEndOf="@+id/cameraSwitch"
+            app:layout_constraintStart_toStartOf="@+id/cameraSwitch"
+            app:layout_constraintTop_toBottomOf="@+id/locationSwitch" />
+
+        <Switch
+            android:id="@+id/locationSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/source_sans_pro"
+            android:gravity="center|center_horizontal|center_vertical"
+            android:onClick="updateLocation"
+            android:text="Location"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/darkModeSwitch"
+            app:layout_constraintEnd_toEndOf="@+id/darkModeSwitch"
+            app:layout_constraintHorizontal_bias="0.571"
+            app:layout_constraintStart_toStartOf="@+id/darkModeSwitch"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Switch
+            android:id="@+id/cameraSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/source_sans_pro"
+            android:gravity="center|center_horizontal|center_vertical"
+            android:onClick="updateCamera"
+            android:text="Camera"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/anxietyAdviceSwitch"
+            app:layout_constraintEnd_toEndOf="@+id/anxietyAdviceSwitch"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="@+id/anxietyAdviceSwitch"
+            app:layout_constraintTop_toBottomOf="@+id/darkModeSwitch" />
+
+        <Switch
+            android:id="@+id/anxietyAdviceSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/source_sans_pro"
+            android:gravity="center|center_horizontal|center_vertical"
+            android:onClick="updateAdvice"
+            android:text="Anxiety based Advice"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cameraSwitch"
+            tools:layout_editor_absoluteX="43dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="409dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="169dp"
-        android:layout_marginTop="118dp"
-        android:text="Location"
-        android:onClick="updateLocation"
-        app:layout_constraintEnd_toEndOf="@+id/darkModeSwitch"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="60dp"
+        android:fontFamily="@font/quicksand_bold"
+        android:text="Personalise"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Switch
-        android:id="@+id/darkModeSwitch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="167dp"
-        android:layout_marginTop="202dp"
-        android:onClick="updateTheme"
-        android:text="Dark Mode"
-        app:layout_constraintEnd_toEndOf="@+id/cameraSwitch"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Switch
-        android:id="@+id/cameraSwitch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="155dp"
-        android:layout_marginTop="284dp"
-        android:layout_marginEnd="142dp"
-        android:text="Camera"
-        android:onClick="updateCamera"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.428"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Switch
-        android:id="@+id/anxietyAdviceSwitch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="113dp"
-        android:layout_marginTop="378dp"
-        android:text="Anxiety based Advice"
-        android:onClick="updateAdvice"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

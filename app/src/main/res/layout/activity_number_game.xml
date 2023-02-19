@@ -6,36 +6,61 @@
     android:layout_height="match_parent"
     tools:context=".numberGameActivity">
 
-    <Button
-        android:id="@+id/numLeft"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="65dp"
-        android:layout_marginTop="158dp"
-        android:onClick="clickNumLeft"
-        android:text="Button"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="340dp"
+        android:layout_height="493dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="186dp"
+        android:background="@drawable/round_gradient_background"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <Button
-        android:id="@+id/numMiddle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="157dp"
-        android:layout_marginTop="277dp"
-        android:onClick="clickNumMiddle"
-        android:text="Button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <Button
+            android:id="@+id/numLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="123dp"
+            android:background="@drawable/round_green_btn"
+            android:onClick="clickNumLeft"
+            app:layout_constraintEnd_toEndOf="@+id/numMiddle"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/numMiddle"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/numRight"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="245dp"
-        android:layout_marginTop="392dp"
-        android:onClick="clickNumRight"
-        android:text="Button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <Button
+            android:id="@+id/numMiddle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_gold_btn"
+            android:onClick="clickNumMiddle"
+            app:layout_constraintEnd_toEndOf="@+id/numRight"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/numRight"
+            tools:layout_editor_absoluteY="246dp" />
+
+        <Button
+            android:id="@+id/numRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="125dp"
+            android:layout_marginTop="364dp"
+            android:background="@drawable/round_white_btn"
+            android:onClick="clickNumRight"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="314dp"
+        android:layout_height="49dp"
+        android:fontFamily="@font/quicksand_bold"
+        android:text="Pick the largest number!"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="48dp"
+        tools:layout_editor_absoluteY="68dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

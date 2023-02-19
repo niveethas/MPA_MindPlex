@@ -24,6 +24,7 @@ public class GamesMenu extends AppCompatActivity {
     }
 
     public void pictureGameActivity(View view){
-
+        Intent MMPicture = new Intent(GamesMenu.this, CameraGameActivity.class);
+        startActivity(MMPicture);
     }
 }
