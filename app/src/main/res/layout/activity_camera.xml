@@ -7,15 +7,37 @@
     tools:context=".CameraActivity">
 
     <FrameLayout
+        android:id="@+id/colourContainer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/container">
+        android:layout_height="match_parent">
+
         <androidx.camera.view.PreviewView
             android:id="@+id/previewView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent">
+
+        </androidx.camera.view.PreviewView>
     </FrameLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent">
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/colourText"
+        android:layout_width="257dp"
+        android:layout_height="123dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="77dp"
+        android:layout_marginTop="304dp"
+        android:layout_marginEnd="77dp"
+        android:layout_marginBottom="304dp"
+        android:gravity="center"
+        android:textColor="@color/main_green"
+        app:layout_constraintBottom_toBottomOf="@+id/colourContainer"
+        app:layout_constraintEnd_toEndOf="@+id/colourContainer"
+        app:layout_constraintStart_toStartOf="@+id/colourContainer"
+        app:layout_constraintTop_toTopOf="@+id/colourContainer" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
