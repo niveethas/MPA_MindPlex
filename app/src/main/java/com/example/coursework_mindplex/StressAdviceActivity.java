@@ -53,7 +53,6 @@ public class StressAdviceActivity extends AppCompatActivity {
         getImages();
         displayTexts();
         displayImages();
-        //CameraX library
     }
 
 
@@ -64,8 +63,6 @@ public class StressAdviceActivity extends AppCompatActivity {
         imagesURLs.add("https://firebasestorage.googleapis.com/v0/b/coursework-mindplex.appspot.com/o/7774211_3744414.jpg?alt=media&token=0460c222-cedb-43c8-8f12-d000749d15e5");
         imagesURLs.add("https://firebasestorage.googleapis.com/v0/b/coursework-mindplex.appspot.com/o/Happy%20women%20sitting%20and%20talking%20to%20each%20other.jpg?alt=media&token=d4515484-705b-4264-9c71-40dcffab9027");
         imagesURLs.add("https://firebasestorage.googleapis.com/v0/b/coursework-mindplex.appspot.com/o/Work_5.jpg?alt=media&token=bfb5dd8b-d88d-42a5-bfc1-0a81ec2fe6a1");
-       // ImageView adviceText1 = findViewById(R.id.AnxietyAdvice1);
-       // TextView adviceText2 = findViewById(R.id.AnxietyAdvice2);
     }
 
     public void displayImages(){
@@ -109,6 +106,7 @@ public class StressAdviceActivity extends AppCompatActivity {
                         if (document.exists()) {
                             String data = document.getString("Text");
                             stressAdvice = data.split("/");
+
                         } else {
                             Log.d("MainActivity", "No such document");
                         }
@@ -142,31 +140,37 @@ public class StressAdviceActivity extends AppCompatActivity {
                         TextView stressText1 = findViewById(R.id.StressText1);
                         TextView stressText2 = findViewById(R.id.StressText2);
                         TextView stressText3 = findViewById(R.id.StressText3);
+                        try {
 
-                        if (anxietyAdviceToggle = true){
-                            stressText1.setText(stressAdvice[stressPick()]);
-                            stressText2.setText(stressAdvice[stressPick()]);
-                            stressText3.setText(stressAdvice[stressPick()]);
+                            if (anxietyAdviceToggle = true) {
+                                getAnxietyAdviceText();
+                                stressText1.setText(stressAdvice[stressPick()]);
+                                stressText2.setText(stressAdvice[stressPick()]);
+                                stressText3.setText(stressAdvice[stressPick()]);
 
-                            adviceText1.setText(anxietyAdvice[anxietyPick()]);
-                            adviceText2.setText(anxietyAdvice[anxietyPick()]);
+                                adviceText1.setText(anxietyAdvice[anxietyPick()]);
+                                adviceText2.setText(anxietyAdvice[anxietyPick()]);
 
-                        }else{
-                            getStressAdviceText();
-                            adviceText1.clearComposingText();
-                            adviceText2.clearComposingText();
+                            } else {
+                                getStressAdviceText();
+                                adviceText1.clearComposingText();
+                                adviceText2.clearComposingText();
 
-                            stressText1.setText(stressAdvice[stressPick()]);
-                            stressText2.setText(stressAdvice[stressPick()]);
-                            stressText3.setText(stressAdvice[stressPick()]);
+                                stressText1.setText(stressAdvice[stressPick()]);
+                                stressText2.setText(stressAdvice[stressPick()]);
+                                stressText3.setText(stressAdvice[stressPick()]);
 
+                            }
                         }
+                        catch (Exception e){
+                            Log.w("StressAdvice", e);
+                            }
                     } else {
-                        Log.d("MainActivity", "No such document");
+                        Log.d("StressAdvice", "No such document");
                         anxietyAdviceToggle = true;
                     }
                 } else {
-                    Log.d("MainActivity", "get failed with ",
+                    Log.d("StressAdvice", "get failed with ",
                             task.getException());
                     anxietyAdviceToggle = true;
                     //The default of the anxiety advice is to be on.
@@ -178,8 +182,9 @@ public class StressAdviceActivity extends AppCompatActivity {
 
     }
 
+    //the following randomiser functions have been derived from: https://stackoverflow.com/questions/5271598/java-generate-random-number-between-two-given-values
+
     public int anxietyPick (){
-        //REFERENCE
         Random r = new Random();
         int low = 0;
         int highA = anxietyAdvice.length;
