@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="500dp"
             android:layout_gravity="center"
-            android:background="@drawable/gradient_background"
+            android:background="?attr/bgGradientPrimary"
             android:gravity="center"
             android:text="This is a CameraX test app!"
             android:textSize="20sp"
@@ -26,7 +26,7 @@
             android:id="@+id/enableCamera"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/gold_gradient_background"
+            android:background="?attr/bgGradientSecondary"
             android:gravity="center"
             android:text="Open Camera" />
     </LinearLayout>

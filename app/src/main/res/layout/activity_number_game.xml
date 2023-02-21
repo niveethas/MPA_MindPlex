@@ -11,7 +11,7 @@
         android:layout_height="493dp"
         android:layout_marginStart="35dp"
         android:layout_marginTop="186dp"
-        android:background="@drawable/round_gradient_background"
+        android:background="?attr/bgGradientPrimaryRnd"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -55,12 +55,16 @@
         android:id="@+id/textView"
         android:layout_width="314dp"
         android:layout_height="49dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="68dp"
         android:fontFamily="@font/quicksand_bold"
+        android:gravity="center_horizontal"
         android:text="Pick the largest number!"
         android:textAlignment="center"
+        android:textColor="?attr/headingTextPrimary"
         android:textSize="20sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="48dp"
-        tools:layout_editor_absoluteY="68dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

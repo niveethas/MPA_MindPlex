@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="bgGradientPrimary" format="reference"></attr>
+    <attr name="bgGradientSecondary" format="reference"></attr>
+    <attr name="bgGradientTertiary" format="reference"></attr>
+    <attr name="bgGradientPrimaryRnd" format="reference"></attr>
+    <attr name="headingTextPrimary" format="reference"></attr>
+</resources>

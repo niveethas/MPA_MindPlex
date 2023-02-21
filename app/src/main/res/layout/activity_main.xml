@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_background"
+    android:background="?attr/bgGradientPrimary"
     tools:context=".MainActivity">
 
     <TextView
@@ -31,7 +31,7 @@
         android:fontFamily="@font/quicksand_bold"
         android:text="For a stress free life"
         android:textAlignment="center"
-        android:textColor="@color/black"
+        android:textColor="?attr/colorOnPrimary"
         android:textSize="19sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
