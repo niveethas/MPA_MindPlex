@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -54,22 +55,22 @@ public class PersonalisationActivity extends AppCompatActivity {
                         Switch themeToggle = findViewById(R.id.darkModeSwitch);
                         Switch cameraToggle = findViewById(R.id.cameraSwitch);
 
-                        if (adviceData == "true") {
+                        if (adviceData.equals("true")) {
                             adviceToggle.setChecked(true);
                         } else {
                             adviceToggle.setChecked(false);
                         }
-                        if (locationData == "true") {
+                        if (locationData.equals("true")) {
                             locationToggle.setChecked(true);
                         } else {
                             locationToggle.setChecked(false);
                         }
-                        if (cameraData == "true") {
+                        if (cameraData.equals("true")) {
                             cameraToggle.setChecked(true);
                         } else {
                             cameraToggle.setChecked(false);
                         }
-                        if (themeData == "true") {
+                        if (themeData.equals("true")) {
                             themeToggle.setChecked(true);
                         } else {
                             themeToggle.setChecked(false);
@@ -95,13 +96,13 @@ public class PersonalisationActivity extends AppCompatActivity {
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        Log.d("MainActivity", "DocumentSnapshot successfully updated!");
+                        Toast.makeText(PersonalisationActivity.this, "Location Permissions Saved!", Toast.LENGTH_SHORT).show();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Log.w("MainActivity", "Error updating document", e);
+                        Log.w("Personalisation", "Error updating document", e);
                     }
                 });
     }
@@ -121,13 +122,13 @@ public class PersonalisationActivity extends AppCompatActivity {
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        Log.d("MainActivity", "DocumentSnapshot successfully updated!");
+                        Toast.makeText(PersonalisationActivity.this, "Advice Changes Saved!", Toast.LENGTH_SHORT).show();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Log.w("MainActivity", "Error updating document", e);
+                        Log.w("Personalisation", "Error updating document", e);
                     }
                 });
     }
@@ -147,13 +148,13 @@ public class PersonalisationActivity extends AppCompatActivity {
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        Log.d("MainActivity", "DocumentSnapshot successfully updated!");
+                        Toast.makeText(PersonalisationActivity.this, "Theme Changes Saved!", Toast.LENGTH_SHORT).show();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Log.w("MainActivity", "Error updating document", e);
+                        Log.w("Personalisation", "Error updating document", e);
                     }
                 });
     }
@@ -172,13 +173,13 @@ public class PersonalisationActivity extends AppCompatActivity {
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        Log.d("MainActivity", "DocumentSnapshot successfully updated!");
+                        Toast.makeText(PersonalisationActivity.this, "Camera Permissions Saved!", Toast.LENGTH_SHORT).show();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Log.w("MainActivity", "Error updating document", e);
+                        Log.w("Personalisation", "Error updating document", e);
                     }
                 });
     }
