@@ -34,7 +34,7 @@ public class MainMenu extends AppCompatActivity {
     }
 
     public void manageAccountClicked(View view){
-        Intent MMAccount = new Intent(MainMenu.this, PersonalisationActivity.class);
+        Intent MMAccount = new Intent(MainMenu.this, AccountMenuActivity.class);
         startActivity(MMAccount);
     }
 }
