@@ -58,7 +58,9 @@ public class SignUpActivity extends AppCompatActivity {
                                                     }
                                                 });
                                         Intent SUMenu = new Intent(SignUpActivity.this, MainMenu.class);
+                                        SUMenu.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                         startActivity(SUMenu);
+                                        finish();
                                     }
                                     catch (Exception e) {
                                         //REMOVE THE USER FROM AUTHENTICATION IF IT COULD NOT BE SAVED IN FIRESTORE

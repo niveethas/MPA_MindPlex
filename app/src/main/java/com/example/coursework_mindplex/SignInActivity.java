@@ -36,7 +36,9 @@ public class SignInActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             FirebaseUser user = mAuth.getCurrentUser();
                             Intent SIMenu = new Intent(SignInActivity.this, MainMenu.class);
+                            SIMenu.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(SIMenu);
+                            finish();
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w("MainActivity", "signInWithEmail:failure", task.getException());
