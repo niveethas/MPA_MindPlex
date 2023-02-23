@@ -1,5 +1,6 @@
 package com.example.coursework_mindplex;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -7,15 +8,45 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
 public class MainMenu extends AppCompatActivity {
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private FirebaseAuth mAuth;
+    public String uid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser user = mAuth.getCurrentUser();
+        uid = user.getUid();
+        //Customise text with current user's name
+        try {
+           db.collection("Users").document(uid).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+               @Override
+               public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                   if (task.isSuccessful()) {
+                       DocumentSnapshot document = task.getResult();
+                       if (document.exists()) {
+                           String name = document.getString("First Name");
+                           TextView intro = findViewById(R.id.introQText);
+                           intro.setText("Hi "+ name +"! What would you like to do today?");
+                       }
+                   }
+               }
+           });
+        }catch (Exception e) {
+           TextView intro = findViewById(R.id.introQText);
+           intro.setText("Hi, what would you like to do today?");
+        }
     }
-
-    //**** ADD ON CREATE METHOD *****
 
 
     public void gamesClicked(View view){
@@ -34,7 +65,7 @@ public class MainMenu extends AppCompatActivity {
     }
 
     public void manageAccountClicked(View view){
-        Intent MMAccount = new Intent(MainMenu.this, AccountMenuActivity.class);
+        Intent MMAccount = new Intent(MainMenu.this, AccountMenu.class);
         startActivity(MMAccount);
     }
 }

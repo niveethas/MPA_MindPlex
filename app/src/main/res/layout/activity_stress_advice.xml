@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:clipChildren="true"
     tools:context=".StressAdviceActivity">
 
     <ScrollView
         android:id="@+id/scrollView"
-        android:layout_width="358dp"
-        android:layout_height="662dp"
+        android:layout_width="412dp"
+        android:layout_height="728dp"
         android:layout_marginTop="34dp"
         android:layout_marginBottom="34dp"
         android:background="@drawable/round_gradient_background"
@@ -27,6 +28,22 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/adviceTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/quicksand_bold"
+                android:gravity="center_horizontal"
+                android:text="Tips and Advice"
+                android:textAlignment="center"
+                android:textColor="?attr/headingTextPrimary"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="@+id/emailLabelSI"
+                app:layout_constraintStart_toStartOf="@+id/emailLabelSI"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
                 android:id="@+id/AnxietyAdvice1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -42,6 +59,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
                 tools:srcCompat="@tools:sample/avatars" />
@@ -61,6 +80,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 android:adjustViewBounds="true"
                 android:scaleType="fitCenter"
                 tools:srcCompat="@tools:sample/avatars" />
@@ -80,6 +101,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 tools:srcCompat="@tools:sample/avatars" />
 
             <TextView

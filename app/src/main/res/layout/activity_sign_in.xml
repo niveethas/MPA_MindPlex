@@ -4,91 +4,97 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/bgGradientPrimary"
     tools:context=".SignInActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="331dp"
-        android:layout_height="637dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="45dp"
-        android:layout_marginBottom="45dp"
-        android:background="@drawable/round_gradient_background"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <TextView
+        android:id="@+id/SignInTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="77dp"
+        android:fontFamily="@font/quicksand_bold"
+        android:gravity="center_horizontal"
+        android:text="Log In To Your Account"
+        android:textAlignment="center"
+        android:textColor="?attr/headingTextPrimary"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/emailLabelSI"
+        app:layout_constraintStart_toStartOf="@+id/emailLabelSI"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/emailLabelSI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/source_sans_pro"
+        android:text="Email"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/emailTxtboxSI"
+        app:layout_constraintEnd_toEndOf="@+id/emailTxtboxSI"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/emailTxtboxSI"
+        app:layout_constraintTop_toBottomOf="@+id/SignInTitle" />
+
+    <TextView
+        android:id="@+id/passwordLabelSI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/source_sans_pro"
+        android:text="Password"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/passwordTxtboxSI"
+        app:layout_constraintEnd_toEndOf="@+id/passwordTxtboxSI"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/passwordTxtboxSI"
+        app:layout_constraintTop_toBottomOf="@+id/emailTxtboxSI" />
+
+    <Button
+        android:id="@+id/cancelButtonSI"
+        android:layout_width="115dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="149dp"
+        android:layout_marginTop="619dp"
+        android:background="@drawable/round_grey_btn"
+        android:onClick="cancelButtonClicked"
+        android:text="Cancel"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/emailTxtboxSI"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textEmailAddress"
-            app:layout_constraintBottom_toTopOf="@+id/passwordLabelSI"
-            app:layout_constraintEnd_toEndOf="@+id/passwordLabelSI"
-            app:layout_constraintStart_toStartOf="@+id/passwordLabelSI"
-            app:layout_constraintTop_toBottomOf="@+id/emailLabelSI" />
+    <EditText
+        android:id="@+id/passwordTxtboxSI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/loginButtonSI"
+        app:layout_constraintEnd_toEndOf="@+id/loginButtonSI"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/loginButtonSI"
+        app:layout_constraintTop_toBottomOf="@+id/passwordLabelSI" />
 
-        <EditText
-            android:id="@+id/passwordTxtboxSI"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPassword"
-            android:minHeight="48dp"
-            app:layout_constraintBottom_toTopOf="@+id/loginButtonSI"
-            app:layout_constraintEnd_toEndOf="@+id/loginButtonSI"
-            app:layout_constraintStart_toStartOf="@+id/loginButtonSI"
-            app:layout_constraintTop_toBottomOf="@+id/passwordLabelSI" />
+    <EditText
+        android:id="@+id/emailTxtboxSI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toTopOf="@+id/passwordLabelSI"
+        app:layout_constraintEnd_toEndOf="@+id/passwordLabelSI"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/passwordLabelSI"
+        app:layout_constraintTop_toBottomOf="@+id/emailLabelSI" />
 
-        <Button
-            android:id="@+id/loginButtonSI"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/round_green_btn"
-            android:onClick="loginButtonClicked"
-            android:text="Login"
-            app:layout_constraintBottom_toTopOf="@+id/cancelButtonSI"
-            app:layout_constraintEnd_toEndOf="@+id/cancelButtonSI"
-            app:layout_constraintStart_toStartOf="@+id/cancelButtonSI"
-            app:layout_constraintTop_toBottomOf="@+id/passwordTxtboxSI" />
-
-        <Button
-            android:id="@+id/cancelButtonSI"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="124dp"
-            android:background="@drawable/round_grey_btn"
-            android:onClick="cancelButtonClicked"
-            android:text="Cancel"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/loginButtonSI" />
-
-        <TextView
-            android:id="@+id/emailLabelSI"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="59dp"
-            android:fontFamily="@font/source_sans_pro"
-            android:text="Email"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/emailTxtboxSI"
-            app:layout_constraintEnd_toEndOf="@+id/emailTxtboxSI"
-            app:layout_constraintStart_toStartOf="@+id/emailTxtboxSI"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/passwordLabelSI"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/source_sans_pro"
-            android:text="Password"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/passwordTxtboxSI"
-            app:layout_constraintEnd_toEndOf="@+id/passwordTxtboxSI"
-            app:layout_constraintStart_toStartOf="@+id/passwordTxtboxSI"
-            app:layout_constraintTop_toBottomOf="@+id/emailTxtboxSI" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:id="@+id/loginButtonSI"
+        android:layout_width="108dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="540dp"
+        android:background="@drawable/round_green_btn"
+        android:onClick="loginButtonClicked"
+        android:text="Login"
+        app:layout_constraintEnd_toEndOf="@+id/cancelButtonSI"
+        app:layout_constraintStart_toStartOf="@+id/cancelButtonSI"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

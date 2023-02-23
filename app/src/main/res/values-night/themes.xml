@@ -16,6 +16,8 @@
         <item name="bgGradientSecondary">@drawable/night_gold_gradient_background</item>
         <item name="bgGradientTertiary">@drawable/night_green_gradient_background</item>
         <item name="bgGradientPrimaryRnd">@drawable/round_night_gradient_background</item>
+        <item name="bgGradientSecondaryRnd">@drawable/round_night_gold_gradient_background</item>
+        <item name="bgGradientTertiaryRnd">@drawable/round_night_green_gradient_background</item>
         <item name="headingTextPrimary">@color/night_text_grey</item>
     </style>
 </resources>

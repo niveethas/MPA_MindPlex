@@ -4,5 +4,7 @@
     <attr name="bgGradientSecondary" format="reference"></attr>
     <attr name="bgGradientTertiary" format="reference"></attr>
     <attr name="bgGradientPrimaryRnd" format="reference"></attr>
+    <attr name="bgGradientSecondaryRnd" format="reference"></attr>
     <attr name="headingTextPrimary" format="reference"></attr>
+    <attr name="bgGradientTertiaryRnd" format="reference"></attr>
 </resources>

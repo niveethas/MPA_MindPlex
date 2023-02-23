@@ -4,37 +4,82 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AccountMenuActivity">
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="167dp"
-        android:layout_marginTop="66dp"
-        android:onClick="passwordChangeActivity"
-        android:text="pass"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="154dp"
-        android:layout_marginTop="148dp"
-        android:onClick="personalisationActivity"
-        android:text="personalise"
-        app:layout_constraintEnd_toEndOf="@+id/button2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    android:layout_gravity="center_horizontal"
+    android:background="?attr/bgGradientPrimary"
+    tools:context=".AccountMenu">
 
     <Button
         android:id="@+id/signOutBtn"
+        android:layout_width="260dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="623dp"
+        android:layout_marginEnd="77dp"
+        android:layout_marginBottom="60dp"
+        android:background="@drawable/round_red_btn"
+        android:onClick="signOutActivity"
+        android:padding="5dp"
+        android:text="Sign Out"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/personalInfoBtn"
+        android:layout_width="191dp"
+        android:layout_height="48dp"
+        android:background="?attr/bgGradientSecondaryRnd"
+        android:padding="5dp"
+        android:text="Personal Information"
+        app:layout_constraintBottom_toTopOf="@+id/signOutBtn"
+        app:layout_constraintEnd_toEndOf="@+id/signOutBtn"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/signOutBtn"
+        app:layout_constraintTop_toBottomOf="@+id/personaliseBtn" />
+
+    <Button
+        android:id="@+id/personaliseBtn"
+        android:layout_width="187dp"
+        android:layout_height="48dp"
+        android:background="?attr/bgGradientSecondaryRnd"
+        android:onClick="personalisationActivity"
+        android:padding="5dp"
+        android:text="Preferences"
+        app:layout_constraintBottom_toTopOf="@+id/personalInfoBtn"
+        app:layout_constraintEnd_toEndOf="@+id/personalInfoBtn"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/personalInfoBtn"
+        app:layout_constraintTop_toBottomOf="@+id/passwordBtn" />
+
+    <Button
+        android:id="@+id/passwordBtn"
+        android:layout_width="190dp"
+        android:layout_height="48dp"
+        android:background="?attr/bgGradientSecondaryRnd"
+        android:onClick="passwordChangeActivity"
+        android:padding="5dp"
+        android:text="Change Password"
+        app:layout_constraintBottom_toTopOf="@+id/personaliseBtn"
+        app:layout_constraintEnd_toEndOf="@+id/personaliseBtn"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/personaliseBtn"
+        app:layout_constraintTop_toBottomOf="@+id/accMenuTitle" />
+
+    <TextView
+        android:id="@+id/accMenuTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="signOutActivity"
-        android:text="Sign Out"
-        tools:layout_editor_absoluteX="158dp"
-        tools:layout_editor_absoluteY="641dp" />
+        android:layout_marginTop="77dp"
+        android:fontFamily="@font/quicksand_bold"
+        android:text="Manage Account"
+        android:textColor="?attr/headingTextPrimary"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/passwordBtn"
+        app:layout_constraintStart_toStartOf="@+id/passwordBtn"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

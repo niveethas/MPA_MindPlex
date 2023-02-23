@@ -17,14 +17,14 @@
         android:theme="@style/Theme.Coursework_Mindplex"
         tools:targetApi="31">
         <activity
-            android:name=".ChangePersonalInfo"
+            android:name=".ChangePersonalInfoActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".AccountMenuActivity"
+            android:name=".AccountMenu"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

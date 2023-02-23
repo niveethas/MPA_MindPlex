@@ -11,7 +11,6 @@
         android:id="@+id/titleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="104dp"
         android:layout_marginTop="160dp"
         android:fontFamily="@font/quicksand_bold"
         android:text="Mindplex"
@@ -19,14 +18,14 @@
         android:textColor="@color/white"
         android:textSize="48sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/sloganTextview"
+        app:layout_constraintStart_toStartOf="@+id/sloganTextview"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/sloganTextview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="120dp"
         android:layout_marginTop="240dp"
         android:fontFamily="@font/quicksand_bold"
         android:text="For a stress free life"
@@ -34,41 +33,42 @@
         android:textColor="?attr/colorOnPrimary"
         android:textSize="19sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/signUpBtn"
+        app:layout_constraintStart_toStartOf="@+id/signUpBtn"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/signUpBtn"
         android:layout_width="121dp"
         android:layout_height="47dp"
-        android:layout_marginStart="144dp"
-        android:layout_marginBottom="152dp"
+        android:layout_marginTop="533dp"
         android:background="@drawable/round_gold_btn"
         android:fontFamily="@font/source_sans_pro"
-        android:text="Sign Up"
         android:onClick="SignUp"
+        android:text="Sign Up"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="19sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/logInBtn"
+        app:layout_constraintStart_toStartOf="@+id/logInBtn"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/logInBtn"
         android:layout_width="121dp"
         android:layout_height="47dp"
-        android:layout_marginStart="144dp"
-        android:layout_marginBottom="84dp"
+        android:layout_marginStart="146dp"
+        android:layout_marginTop="600dp"
         android:background="@drawable/round_white_btn"
         android:backgroundTint="#C4FFFFFF"
         android:fontFamily="@font/source_sans_pro"
-        android:text="Log In"
         android:onClick="SignIn"
+        android:text="Log In"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="19sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

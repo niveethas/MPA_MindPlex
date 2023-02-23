@@ -4,73 +4,59 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/bgGradientPrimary"
     tools:context=".GamesMenu">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="347dp"
-        android:layout_height="497dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="85dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="85dp"
-        android:background="?attr/bgGradientPrimaryRnd"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
-
-        <Button
-            android:id="@+id/pictureGameBtn"
-            android:layout_width="125dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="72dp"
-            android:background="?attr/colorPrimaryVariant"
-            android:onClick="pictureGameActivity"
-            android:text="Find That Colour!"
-            app:layout_constraintEnd_toEndOf="@+id/numberGameBtn"
-            app:layout_constraintHorizontal_bias="0.565"
-            app:layout_constraintStart_toStartOf="@+id/numberGameBtn"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/numberGameBtn"
-            android:layout_width="148dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="221dp"
-            android:background="?attr/colorPrimaryVariant"
-            android:onClick="numberGameActivity"
-            android:text="Biggest Number"
-            app:layout_constraintEnd_toEndOf="@+id/button"
-            app:layout_constraintStart_toStartOf="@+id/button"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="152dp"
-            android:layout_height="48dp"
-            android:layout_marginStart="96dp"
-            android:layout_marginTop="374dp"
-            android:layout_marginEnd="99dp"
-            android:background="?attr/colorPrimaryVariant"
-            android:text="Alphabatise!"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
     <TextView
-        android:id="@+id/textView3"
-        android:layout_width="409dp"
+        android:id="@+id/gameMenuTitle"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="68dp"
-        android:fontFamily="@font/source_sans_pro"
-        android:gravity="center_horizontal"
-        android:text="Pick a game!"
+        android:fontFamily="@font/quicksand_bold"
+        android:text="Pick A Game"
         android:textColor="?attr/headingTextPrimary"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/pictureGameBtn"
+        app:layout_constraintEnd_toEndOf="@+id/pictureGameBtn"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/pictureGameBtn"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/pictureGameBtn"
+        android:layout_width="125dp"
+        android:layout_height="48dp"
+        android:background="?attr/bgGradientSecondaryRnd"
+        android:onClick="pictureGameActivity"
+        android:text="Find That Colour!"
+        app:layout_constraintBottom_toTopOf="@+id/numberGameBtn"
+        app:layout_constraintEnd_toEndOf="@+id/numberGameBtn"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/numberGameBtn"
+        app:layout_constraintTop_toBottomOf="@+id/gameMenuTitle" />
+
+    <Button
+        android:id="@+id/numberGameBtn"
+        android:layout_width="148dp"
+        android:layout_height="48dp"
+        android:background="?attr/bgGradientSecondaryRnd"
+        android:onClick="numberGameActivity"
+        android:text="Biggest Number"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="@+id/button"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/pictureGameBtn" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="152dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="128dp"
+        android:background="?attr/bgGradientSecondaryRnd"
+        android:text="Alphabatise!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/numberGameBtn" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

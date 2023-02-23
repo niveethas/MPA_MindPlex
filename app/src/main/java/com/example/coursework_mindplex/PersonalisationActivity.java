@@ -38,7 +38,7 @@ public class PersonalisationActivity extends AppCompatActivity {
 
     }
 
-    public void loadPersonalisations (){
+    public void loadPersonalisations(){
         db.collection("Users").document(uid).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {

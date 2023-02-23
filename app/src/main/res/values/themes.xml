@@ -16,6 +16,8 @@
         <item name="bgGradientSecondary">@drawable/gold_gradient_background</item>
         <item name="bgGradientTertiary">@drawable/green_gradient_background</item>
         <item name="bgGradientPrimaryRnd">@drawable/round_gradient_background</item>
+        <item name="bgGradientSecondaryRnd">@drawable/round_gold_btn</item>
+        <item name="bgGradientTertiaryRnd">@drawable/round_green_btn</item>
         <item name="headingTextPrimary">@color/day_text_grey</item>
     </style>
 </resources>

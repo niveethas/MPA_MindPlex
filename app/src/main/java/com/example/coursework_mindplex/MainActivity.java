@@ -18,6 +18,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
     }
+    //**** ADD ON CREATE METHOD *****
+
 
     public void SignIn(View view){
         Intent SIintent = new Intent(MainActivity.this, SignInActivity.class);

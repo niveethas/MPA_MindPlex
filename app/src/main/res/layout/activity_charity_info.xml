@@ -4,20 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/bgGradientPrimary"
     tools:context=".CharityInfoActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout6"
         android:layout_width="281dp"
         android:layout_height="110dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="166dp"
-        android:background="?attr/bgGradientPrimaryRnd"
+        android:background="?attr/bgGradientSecondaryRnd"
         android:clickable="true"
         android:clipChildren="true"
-        android:clipToPadding="false"
+        android:clipToPadding="true"
         android:onClick="openCharityInfo1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:padding="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout5"
+        app:layout_constraintEnd_toEndOf="@+id/constraintLayout5"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/constraintLayout5"
+        app:layout_constraintTop_toBottomOf="@+id/localCharityTitle">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -25,11 +29,26 @@
             android:clipChildren="true"
             android:gravity="center"
             android:onClick="openCharityInfo1"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp">
+
+            <TextView
+                android:id="@+id/charityTitle1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:clickable="true"
+                android:gravity="center"
+                android:onClick="openCharityInfo1"
+                android:paddingBottom="5dp"
+                android:text="Samaritans"
+                android:textIsSelectable="false"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/charityText1"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:clickable="true"
@@ -38,37 +57,30 @@
                 android:text="TextView"
                 android:textIsSelectable="false" />
 
-            <TextView
-                android:id="@+id/charityTitle1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:clickable="true"
-                android:gravity="center"
-                android:onClick="openCharityInfo1"
-                android:text="TextView"
-                android:textIsSelectable="false"
-                android:textStyle="bold" />
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout5"
         android:layout_width="281dp"
         android:layout_height="113dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="334dp"
-        android:layout_marginBottom="296dp"
-        android:background="?attr/bgGradientPrimaryRnd"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        android:background="?attr/bgGradientSecondaryRnd"
+        android:clipChildren="true"
+        android:clipToPadding="true"
+        android:onClick="openCharityInfo2"
+        android:padding="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/mapView"
+        app:layout_constraintEnd_toEndOf="@+id/mapView"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/mapView"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout6">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
+            android:onClick="openCharityInfo2"
             android:orientation="vertical">
 
             <TextView
@@ -76,35 +88,43 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="TextView" />
+                android:onClick="openCharityInfo2"
+                android:paddingBottom="5dp"
+                android:text="TextView"
+                android:textAlignment="center"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/charityText2"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:onClick="openCharityInfo2"
                 android:text="TextView" />
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/localCharityTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="136dp"
-        android:layout_marginTop="60dp"
+        android:fontFamily="@font/quicksand_bold"
         android:text="Find Local Help"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textStyle="bold"
+        android:textColor="?attr/headingTextPrimary"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout6"
+        app:layout_constraintEnd_toEndOf="@+id/constraintLayout6"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/constraintLayout6"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.gms.maps.MapView
         android:id="@+id/mapView"
         android:layout_width="280dp"
         android:layout_height="144dp"
-        android:layout_marginStart="66dp"
-        android:layout_marginTop="510dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout5"
+        tools:layout_editor_absoluteX="64dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
