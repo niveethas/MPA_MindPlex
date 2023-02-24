@@ -30,7 +30,7 @@
             android:gravity="center"
             android:onClick="openCharityInfo1"
             android:orientation="vertical"
-            tools:layout_editor_absoluteX="0dp"
+            app:layout_constraintStart_toStartOf="parent"
             tools:layout_editor_absoluteY="0dp">
 
             <TextView
@@ -65,15 +65,14 @@
         android:id="@+id/constraintLayout5"
         android:layout_width="281dp"
         android:layout_height="113dp"
+        android:layout_marginStart="64dp"
         android:background="?attr/bgGradientSecondaryRnd"
         android:clipChildren="true"
         android:clipToPadding="true"
         android:onClick="openCharityInfo2"
         android:padding="5dp"
         app:layout_constraintBottom_toTopOf="@+id/mapView"
-        app:layout_constraintEnd_toEndOf="@+id/mapView"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/mapView"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout6">
 
         <LinearLayout
@@ -111,9 +110,9 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/quicksand_bold"
         android:text="Find Local Help"
+        android:textColor="?attr/headingTextPrimary"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:textColor="?attr/headingTextPrimary"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout6"
         app:layout_constraintEnd_toEndOf="@+id/constraintLayout6"
         app:layout_constraintHorizontal_bias="0.5"

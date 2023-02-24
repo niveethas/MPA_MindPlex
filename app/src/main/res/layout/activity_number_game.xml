@@ -35,11 +35,11 @@
             android:id="@+id/numLeft"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="123dp"
             android:background="@drawable/round_green_btn"
             android:onClick="clickNumLeft"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toTopOf="@+id/numMiddle"
             app:layout_constraintEnd_toEndOf="@+id/numMiddle"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/numMiddle"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -49,21 +49,23 @@
             android:layout_height="wrap_content"
             android:background="@drawable/round_gold_btn"
             android:onClick="clickNumMiddle"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toTopOf="@+id/numRight"
             app:layout_constraintEnd_toEndOf="@+id/numRight"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/numRight"
-            tools:layout_editor_absoluteY="246dp" />
+            app:layout_constraintTop_toBottomOf="@+id/numLeft" />
 
         <Button
             android:id="@+id/numRight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="125dp"
-            android:layout_marginTop="364dp"
             android:background="@drawable/round_white_btn"
             android:onClick="clickNumRight"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/numMiddle" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
