@@ -14,6 +14,13 @@ public class AccountMenu extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (Theme.Night = true){
+            this.setTheme(R.style.Theme_Coursework_Mindplex_Night);
+        }
+        else{
+            this.setTheme(R.style.Theme_Coursework_Mindplex);
+
+        }
         setContentView(R.layout.activity_account_menu);
         mAuth = FirebaseAuth.getInstance();
     }

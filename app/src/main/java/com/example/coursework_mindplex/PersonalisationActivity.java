@@ -30,6 +30,13 @@ public class PersonalisationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (Theme.Night = true){
+            this.setTheme(R.style.Theme_Coursework_Mindplex_Night);
+        }
+        else{
+            this.setTheme(R.style.Theme_Coursework_Mindplex);
+
+        }
         setContentView(R.layout.activity_personalisation);
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
@@ -140,8 +147,10 @@ public class PersonalisationActivity extends AppCompatActivity {
         boolean checked = themeToggle.isChecked();
         if (checked){
             newValue = "true";
+            Theme.Night = true;
         }else{
             newValue = "false";
+            Theme.Night = false;
         }
         db.collection("Users").document(uid)
                 .update("Dark Mode", newValue)

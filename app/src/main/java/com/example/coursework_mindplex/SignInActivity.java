@@ -16,9 +16,13 @@ import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class SignInActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    public String uid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,8 +39,26 @@ public class SignInActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             FirebaseUser user = mAuth.getCurrentUser();
+                            uid = user.getUid();
                             Intent SIMenu = new Intent(SignInActivity.this, MainMenu.class);
                             SIMenu.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            db.collection("Users").document(uid).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                @Override
+                                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                    if (task.isSuccessful()) {
+                                        DocumentSnapshot document = task.getResult();
+                                        if (document.exists()) {
+                                            String themeData = document.getString("Dark Mode");
+                                            if (themeData.equals("true")) {
+                                                Theme.Night = true;
+                                            }else{
+                                                Theme.Night = false;
+                                            }
+
+                                        }
+                                    }
+                                }
+                            });
                             startActivity(SIMenu);
                             finish();
                         } else {

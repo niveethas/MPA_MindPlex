@@ -39,6 +39,13 @@ public class CameraGameActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (Theme.Night = true){
+            this.setTheme(R.style.Theme_Coursework_Mindplex_Night);
+        }
+        else{
+            this.setTheme(R.style.Theme_Coursework_Mindplex);
+
+        }
         setContentView(R.layout.activity_camera_game);
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         Button enableCamera = findViewById(R.id.enableCamera);
