@@ -21,8 +21,19 @@ public class localCharityMapActivity extends FragmentActivity implements OnMapRe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        /*
+        // Retrieve the content view that renders the map.
+        setContentView(R.layout.activity_local_charity_map);
+
+        // Construct a PlacesClient
+        .initialize(getApplicationContext(), getString(R.string.maps_api_key));
+        placesClient = Places.createClient(this);
+
+        // Construct a FusedLocationProviderClient.
+        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
+
         binding = ActivityLocalCharityMapBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        setContentView(binding.getRoot());*/
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
