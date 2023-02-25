@@ -16,8 +16,6 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class ChangePersonalInfoActivity extends AppCompatActivity {
-    private FirebaseAuth mAuth;
-    public String uid;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     public String uId;
@@ -26,7 +24,7 @@ public class ChangePersonalInfoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (Theme.Night = true){
+        if (Theme.Night == true){
             this.setTheme(R.style.Theme_Coursework_Mindplex_Night);
         }
         else{

@@ -13,7 +13,7 @@ public class CharityInfoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (Theme.Night = true){
+        if (Theme.Night == true){
             this.setTheme(R.style.Theme_Coursework_Mindplex_Night);
         }
         else{
@@ -47,5 +47,10 @@ public class CharityInfoActivity extends AppCompatActivity {
         // This function has been derived from https://stackoverflow.com/questions/2201917/how-can-i-open-a-url-in-androids-web-browser-from-my-application
         Intent browserCTL = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.crisistextline.org/"));
         startActivity(browserCTL);
+    }
+
+    public void openMapActivity(View view){
+        Intent mapActivity = new Intent(CharityInfoActivity.this,localCharityMapActivity.class);
+        startActivity(mapActivity);
     }
 }

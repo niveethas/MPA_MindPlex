@@ -14,7 +14,7 @@ public class AccountMenu extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (Theme.Night = true){
+        if (Theme.Night == true){
             this.setTheme(R.style.Theme_Coursework_Mindplex_Night);
         }
         else{
@@ -33,6 +33,11 @@ public class AccountMenu extends AppCompatActivity {
     public void personalisationActivity(View view){
         Intent AMPersonalisation = new Intent(AccountMenu.this, PersonalisationActivity.class);
         startActivity(AMPersonalisation);
+    }
+
+    public void personalInfoActivity(View view){
+        Intent AMpersonalInfo = new Intent(AccountMenu.this, ChangePersonalInfoActivity.class);
+        startActivity(AMpersonalInfo);
     }
 
     public void signOutActivity(View view){

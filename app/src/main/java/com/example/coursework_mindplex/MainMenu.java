@@ -23,7 +23,7 @@ public class MainMenu extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (Theme.Night = true){
+        if (Theme.Night == true){
             this.setTheme(R.style.Theme_Coursework_Mindplex_Night);
         }
         else{

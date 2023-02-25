@@ -11,7 +11,7 @@ public class GamesMenu extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (Theme.Night = true){
+        if (Theme.Night == true){
             this.setTheme(R.style.Theme_Coursework_Mindplex_Night);
         }
         else{
@@ -27,7 +27,8 @@ public class GamesMenu extends AppCompatActivity {
     }
 
     public void textGameActivity(View view){
-
+        Intent MMText = new Intent(GamesMenu.this, TextGameActivity.class);
+        startActivity(MMText);
     }
 
     public void pictureGameActivity(View view){

@@ -4,16 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:clipChildren="true"
+    android:clipChildren="false"
     tools:context=".StressAdviceActivity">
 
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="412dp"
         android:layout_height="728dp"
-        android:layout_marginTop="34dp"
-        android:layout_marginBottom="34dp"
-        android:background="@drawable/round_gradient_background"
+        android:background="?attr/bgGradientPrimary"
         android:isScrollContainer="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
