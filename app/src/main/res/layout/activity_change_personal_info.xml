@@ -8,6 +8,20 @@
     android:background="?attr/bgGradientSecondary"
     tools:context=".ChangePersonalInfoActivity">
 
+    <TextView
+        android:id="@+id/backBtn3"
+        android:layout_width="33dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/backarrow"
+        android:gravity="top|left"
+        android:onClick="backBtnClick"
+        android:shadowColor="@color/day_text_grey"
+        android:textSize="34sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
         android:id="@+id/editLNameTxt"
         android:layout_width="wrap_content"

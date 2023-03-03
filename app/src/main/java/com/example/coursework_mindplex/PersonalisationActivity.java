@@ -3,9 +3,15 @@ package com.example.coursework_mindplex;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ActivityOptions;
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.transition.Slide;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,6 +43,7 @@ public class PersonalisationActivity extends AppCompatActivity {
             this.setTheme(R.style.Theme_Coursework_Mindplex);
 
         }
+        setAnimation();
         setContentView(R.layout.activity_personalisation);
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
@@ -166,6 +173,16 @@ public class PersonalisationActivity extends AppCompatActivity {
                         Log.w("Personalisation", "Error updating document", e);
                     }
                 });
+        Intent reloadScreen = new Intent(PersonalisationActivity.this, PersonalisationActivity.class);
+
+        if(Build.VERSION.SDK_INT>20){
+            ActivityOptions options =
+                    ActivityOptions.makeSceneTransitionAnimation(this);
+            startActivity(reloadScreen,options.toBundle());
+        }else {
+            startActivity(reloadScreen);
+        }
+
     }
 
     public void updateCamera(View view){
@@ -193,4 +210,22 @@ public class PersonalisationActivity extends AppCompatActivity {
                 });
     }
 
+    public void setAnimation() {
+        //code derived from https://rohitksingh.medium.com/start-your-activity-with-slide-animation-ae63017e4b7d
+        if (Build.VERSION.SDK_INT > 20) {
+            Slide slide = new Slide();
+            slide.setSlideEdge(Gravity.LEFT);
+            slide.setDuration(300);
+            slide.setInterpolator(new DecelerateInterpolator());
+            getWindow().setExitTransition(slide);
+            getWindow().setEnterTransition(slide);
+        }
+    }
+
+    public void backBtnClick(View view){
+        Intent backMM = new Intent(PersonalisationActivity.this, MainMenu.class);
+        backMM.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(backMM);
+
+    }
 }

@@ -30,4 +30,6 @@ public class MainActivity extends AppCompatActivity {
         Intent SUintent = new Intent(MainActivity.this, SignUpActivity.class);
         startActivity(SUintent);
     }
+
+    
 }

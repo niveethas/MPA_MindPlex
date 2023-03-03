@@ -1,6 +1,7 @@
 package com.example.coursework_mindplex;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.ImageFormat;
@@ -10,6 +11,7 @@ import android.media.Image;
 import android.os.Bundle;
 import android.util.Size;
 import android.view.OrientationEventListener;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -127,7 +129,12 @@ public class CameraActivity extends AppCompatActivity {
         return BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
     }
 
+    public void backBtnClick(View view){
+        Intent backCG = new Intent(CameraActivity.this, CameraGameActivity.class);
+        backCG.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(backCG);
 
+    }
 
 
 }

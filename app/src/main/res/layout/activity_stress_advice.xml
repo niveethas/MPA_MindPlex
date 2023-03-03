@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:clipChildren="false"
+    android:clipChildren="true"
     tools:context=".StressAdviceActivity">
 
     <ScrollView
         android:id="@+id/scrollView"
-        android:layout_width="412dp"
-        android:layout_height="728dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:background="?attr/bgGradientPrimary"
         android:isScrollContainer="false"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -47,10 +47,12 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:fontFamily="@font/source_sans_pro"
+                android:gravity="center"
                 android:includeFontPadding="false"
                 android:padding="10dp"
                 android:text="TextView"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColor="?attr/colorOnPrimary" />
 
             <ImageView
                 android:id="@+id/AdviceImage"
@@ -71,6 +73,7 @@
                 android:gravity="center"
                 android:padding="10dp"
                 android:text="TextView"
+                android:textColor="?attr/colorOnPrimary"
                 android:textAlignment="center" />
 
             <ImageView
@@ -88,6 +91,7 @@
                 android:id="@+id/AnxietyAdvice2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="?attr/colorOnPrimary"
                 android:fontFamily="@font/source_sans_pro"
                 android:gravity="center"
                 android:padding="10dp"
@@ -101,6 +105,8 @@
                 android:layout_gravity="center_horizontal|center_vertical"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
                 tools:srcCompat="@tools:sample/avatars" />
 
             <TextView
@@ -111,12 +117,14 @@
                 android:gravity="center"
                 android:padding="10dp"
                 android:text="TextView"
+                android:textColor="?attr/colorOnPrimary"
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/StressText3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="?attr/colorOnPrimary"
                 android:fontFamily="@font/source_sans_pro"
                 android:gravity="center"
                 android:padding="10dp"

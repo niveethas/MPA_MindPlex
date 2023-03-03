@@ -7,6 +7,20 @@
     android:background="@drawable/gold_gradient_background"
     tools:context=".SignUpActivity">
 
+    <TextView
+        android:id="@+id/backBtn9"
+        android:layout_width="33dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/backarrow"
+        android:gravity="top|left"
+        android:onClick="backBtnClick"
+        android:shadowColor="@color/day_text_grey"
+        android:textSize="34sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
         android:id="@+id/RpasswordTxtbox"
         android:layout_width="wrap_content"
@@ -172,10 +186,4 @@
         app:layout_constraintStart_toStartOf="@+id/LNameLabel"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="20dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

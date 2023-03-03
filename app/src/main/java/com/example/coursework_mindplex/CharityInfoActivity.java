@@ -1,5 +1,6 @@
 package com.example.coursework_mindplex;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -7,12 +8,28 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class CharityInfoActivity extends AppCompatActivity {
+    private FirebaseAuth mAuth;
+    public String uid;
+    FirebaseFirestore db;
+    public String status;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
+        FirebaseUser user = mAuth.getCurrentUser();
+        uid = user.getUid();
         if (Theme.Night == true){
             this.setTheme(R.style.Theme_Coursework_Mindplex_Night);
         }
@@ -22,6 +39,7 @@ public class CharityInfoActivity extends AppCompatActivity {
         }
         setContentView(R.layout.activity_charity_info);
         setCharityText();
+
     }
 
     public void setCharityText(){
@@ -32,8 +50,9 @@ public class CharityInfoActivity extends AppCompatActivity {
         charity1Title.setText("Samaritans");
         charity1Text.setText("CALL 116 123 anytime for FREE ");
         charity2Title.setText("Crisis Text Line");
-        charity2Text.setText("Text HOME to 741741 for 24/7 support at your finger tips");
+        charity2Text.setText("Text HOME to 741741 for 24/7 support at your fingertips");
 
+        //setting text dynamically
     }
 
     public void openCharityInfo1(View view)
@@ -50,7 +69,43 @@ public class CharityInfoActivity extends AppCompatActivity {
     }
 
     public void openMapActivity(View view){
-        Intent mapActivity = new Intent(CharityInfoActivity.this,localCharityMapActivity.class);
-        startActivity(mapActivity);
+        db.collection("Users").document(uid).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        status = document.getString("Location");
+                    }
+                    if (status.equals("true")) {
+                        Intent mapActivity = new Intent(CharityInfoActivity.this, localCharityMapActivity.class);
+                        startActivity(mapActivity);
+                    } else {
+                        Toast.makeText(CharityInfoActivity.this, "Please change location permissions to open!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        });
+    }
+
+    public void openCharityNum1(View view){
+        Intent phoneSamaritians = new Intent(Intent.ACTION_DIAL);
+        phoneSamaritians.setData(Uri.parse("tel:116 123"));
+        startActivity(phoneSamaritians);
+
+    }
+
+    public void openCharityNum2(View view){
+        Intent phoneCTL = new Intent(Intent.ACTION_DIAL);
+        phoneCTL.setData(Uri.parse("sms:741741"));
+        startActivity(phoneCTL);
+
+    }
+
+    public void backBtnClick(View view){
+        Intent backMM = new Intent(CharityInfoActivity.this, MainMenu.class);
+        backMM.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(backMM);
+
     }
 }

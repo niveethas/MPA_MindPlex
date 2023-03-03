@@ -19,5 +19,9 @@
         <item name="bgGradientSecondaryRnd">@drawable/round_gold_btn</item>
         <item name="bgGradientTertiaryRnd">@drawable/round_green_btn</item>
         <item name="headingTextPrimary">@color/day_text_grey</item>
+
+        <!--enable transitions-->
+        <item name="android:windowContentTransitions">true</item>
+
     </style>
 </resources>

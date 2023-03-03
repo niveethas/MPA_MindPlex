@@ -83,4 +83,18 @@
         app:layout_constraintStart_toStartOf="@+id/passwordBtn"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/backBtn"
+        android:layout_width="33dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/backarrow"
+        android:gravity="top|left"
+        android:onClick="backBtnClick"
+        android:shadowColor="@color/day_text_grey"
+        android:textSize="34sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

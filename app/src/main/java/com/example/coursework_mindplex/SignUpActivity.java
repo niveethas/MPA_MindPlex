@@ -111,6 +111,12 @@ public class SignUpActivity extends AppCompatActivity {
             startActivity(SUBack);
     }
 
+    public void backBtnClick(View view){
+        Intent backMA = new Intent(SignUpActivity.this, MainActivity.class);
+        backMA.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(backMA);
+
+    }
 
 
 }

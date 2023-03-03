@@ -48,6 +48,7 @@ public class CameraGameActivity extends AppCompatActivity {
         }
         setContentView(R.layout.activity_camera_game);
         FirebaseFirestore db = FirebaseFirestore.getInstance();
+        mAuth = FirebaseAuth.getInstance();
         Button enableCamera = findViewById(R.id.enableCamera);
         FirebaseUser user = mAuth.getCurrentUser();
         uid = user.getUid();
@@ -79,7 +80,12 @@ public class CameraGameActivity extends AppCompatActivity {
         });
     }
 
+    public void backBtnClick(View view){
+        Intent backGM = new Intent(CameraGameActivity.this, GamesMenu.class);
+        backGM.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(backGM);
 
+    }
     public void setColourText(){
         String colorChoice = colorPicker.get(randomColor());
         TextView colorText = findViewById(R.id.colourContainer);

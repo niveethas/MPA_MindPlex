@@ -2,6 +2,7 @@ package com.example.coursework_mindplex;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import static android.content.ContentValues.TAG;
@@ -37,6 +38,13 @@ public class TextGameActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (Theme.Night == true){
+            this.setTheme(R.style.Theme_Coursework_Mindplex_Night);
+        }
+        else{
+            this.setTheme(R.style.Theme_Coursework_Mindplex);
+
+        }
         setContentView(R.layout.activity_text_game);
         getWords();
     }
@@ -93,7 +101,6 @@ public class TextGameActivity extends AppCompatActivity {
         Spinner secondSpinner =  findViewById(R.id.spinner2);
         Spinner thirdSpinner = findViewById(R.id.spinner3);
         Arrays.sort(currWordList);
-        String temp = firstSpinner.getSelectedItem().toString();
         if ((firstSpinner.getSelectedItem().toString().equals(currWordList[0]))&&
                 (secondSpinner.getSelectedItem().toString().equals(currWordList[1]))&&
                 (thirdSpinner.getSelectedItem().toString().equals(currWordList[2]))){
@@ -104,6 +111,14 @@ public class TextGameActivity extends AppCompatActivity {
     }
 
     public void reloadWords(View view){
+
         getWords();
+    }
+
+    public void backBtnClick(View view){
+        Intent backGM = new Intent(TextGameActivity.this, GamesMenu.class);
+        backGM.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(backGM);
+
     }
 }

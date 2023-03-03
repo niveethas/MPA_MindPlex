@@ -20,20 +20,8 @@ public class localCharityMapActivity extends FragmentActivity implements OnMapRe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        /*
-        // Retrieve the content view that renders the map.
-        setContentView(R.layout.activity_local_charity_map);
-
-        // Construct a PlacesClient
-        .initialize(getApplicationContext(), getString(R.string.maps_api_key));
-        placesClient = Places.createClient(this);
-
-        // Construct a FusedLocationProviderClient.
-        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
-
         binding = ActivityLocalCharityMapBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());*/
+        setContentView(binding.getRoot());
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -54,9 +42,20 @@ public class localCharityMapActivity extends FragmentActivity implements OnMapRe
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        LatLng CygnetHosp = new LatLng(52.908528,-1.184964);
+        LatLng BayTherapy = new LatLng(52.9388495, -1.125671);
+        LatLng DayNightPharm = new LatLng(52.906123949999994, -1.1756192113025237);
+        LatLng CliftonGP = new LatLng(52.9, -1.18333);
+        LatLng JohnRyleGP = new LatLng(52.9039479, -1.1761751);
+
+        mMap.addMarker(new MarkerOptions().position(CygnetHosp).title("Cygnet Hosptial Clifton"));
+        mMap.addMarker(new MarkerOptions().position(BayTherapy).title("Bay Therapy Centre"));
+        mMap.addMarker(new MarkerOptions().position(DayNightPharm).title("Day Night Pharmacy"));
+        mMap.addMarker(new MarkerOptions().position(CliftonGP).title("Clifton Medical Practice"));
+        mMap.addMarker(new MarkerOptions().position(JohnRyleGP).title("John Ryle Medical Practice"));
+
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(CygnetHosp));
+        mMap.animateCamera(CameraUpdateFactory.zoomIn());
+
     }
 }

@@ -82,4 +82,11 @@ public class SignInActivity extends AppCompatActivity {
         Intent SIBack = new Intent(SignInActivity.this, MainActivity.class);
         startActivity(SIBack);
     }
+
+    public void backBtnClick(View view){
+        Intent backMM = new Intent(SignInActivity.this, MainActivity.class);
+        backMM.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(backMM);
+
+    }
 }

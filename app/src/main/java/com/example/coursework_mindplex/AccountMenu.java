@@ -32,6 +32,7 @@ public class AccountMenu extends AppCompatActivity {
 
     public void personalisationActivity(View view){
         Intent AMPersonalisation = new Intent(AccountMenu.this, PersonalisationActivity.class);
+        AMPersonalisation.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(AMPersonalisation);
     }
 
@@ -43,6 +44,14 @@ public class AccountMenu extends AppCompatActivity {
     public void signOutActivity(View view){
         mAuth.signOut();
         Intent AMSignOut = new Intent(AccountMenu.this, MainActivity.class);
+        AMSignOut.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(AMSignOut);
+    }
+
+    public void backBtnClick(View view){
+        Intent backMM = new Intent(AccountMenu.this, MainMenu.class);
+        backMM.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(backMM);
+
     }
 }

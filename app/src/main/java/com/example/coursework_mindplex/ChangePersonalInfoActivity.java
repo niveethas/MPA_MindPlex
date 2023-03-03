@@ -3,6 +3,7 @@ package com.example.coursework_mindplex;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -74,4 +75,10 @@ public class ChangePersonalInfoActivity extends AppCompatActivity {
         }
     }
 
+    public void backBtnClick(View view){
+        Intent backAM = new Intent(ChangePersonalInfoActivity.this, AccountMenu.class);
+        backAM.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(backAM);
+
+    }
 }

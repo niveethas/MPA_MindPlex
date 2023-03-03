@@ -3,6 +3,7 @@ package com.example.coursework_mindplex;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -76,6 +77,13 @@ public class ChangePasswordActivity extends AppCompatActivity {
         }else{
             Toast.makeText(ChangePasswordActivity.this, "New passwords do not match!", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void backBtnClick(View view){
+        Intent backAM = new Intent(ChangePasswordActivity.this, AccountMenu.class);
+        backAM.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(backAM);
+
     }
 
 }

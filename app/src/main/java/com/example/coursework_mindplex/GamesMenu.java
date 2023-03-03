@@ -35,4 +35,11 @@ public class GamesMenu extends AppCompatActivity {
         Intent MMPicture = new Intent(GamesMenu.this, CameraGameActivity.class);
         startActivity(MMPicture);
     }
+
+    public void backBtnClick(View view){
+        Intent backGM = new Intent(GamesMenu.this, GamesMenu.class);
+        backGM.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(backGM);
+
+    }
 }

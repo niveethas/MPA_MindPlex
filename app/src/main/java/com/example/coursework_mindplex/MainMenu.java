@@ -75,4 +75,8 @@ public class MainMenu extends AppCompatActivity {
         Intent MMAccount = new Intent(MainMenu.this, AccountMenu.class);
         startActivity(MMAccount);
     }
+
+
+
+
 }
