@@ -68,16 +68,20 @@ public class numberGameActivity extends AppCompatActivity {
         }else{
             largest = c;
         }
+        Toast outcomeToast = Toast.makeText( this  , "" , Toast.LENGTH_SHORT );
         if (button.equals("left") && largest == a){
-            Toast.makeText(this, "You clicked " + largest + ", which is the largest number!", Toast.LENGTH_SHORT).show();
+            outcomeToast.setText("You clicked " + largest + ", which is the largest number!");
+            outcomeToast.show();
         }
         else if (button.equals("middle") && largest == b){
-            Toast.makeText(this, "You clicked " + largest + ", which is the largest number!", Toast.LENGTH_SHORT).show();
+            outcomeToast.setText("You clicked " + largest + ", which is the largest number!");
+            outcomeToast.show();
         }else if (button.equals("right") && largest == c){
-            Toast.makeText(this, "You clicked " + largest + ", which is the largest number!", Toast.LENGTH_SHORT).show();
+            outcomeToast.setText("You clicked " + largest + ", which is the largest number!");
+            outcomeToast.show();
         } else {
-            Toast.makeText(this, "Keep Going!", Toast.LENGTH_SHORT).show();
-
+            outcomeToast.setText("Keep Going!");
+            outcomeToast.show();
         }
 
         roll();

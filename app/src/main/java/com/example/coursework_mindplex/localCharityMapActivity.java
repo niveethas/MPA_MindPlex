@@ -1,9 +1,12 @@
 package com.example.coursework_mindplex;
 
+import static com.google.android.gms.maps.CameraUpdateFactory.newLatLng;
+
 import androidx.fragment.app.FragmentActivity;
 
 import android.os.Bundle;
 
+import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -54,8 +57,10 @@ public class localCharityMapActivity extends FragmentActivity implements OnMapRe
         mMap.addMarker(new MarkerOptions().position(CliftonGP).title("Clifton Medical Practice"));
         mMap.addMarker(new MarkerOptions().position(JohnRyleGP).title("John Ryle Medical Practice"));
 
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(CygnetHosp));
-        mMap.animateCamera(CameraUpdateFactory.zoomIn());
-
+        //mMap.moveCamera();
+       // mMap.animateCamera(CameraUpdateFactory.zoomIn(CygnetHosp));
+       // mMap.animateCamera(CameraUpdateFactory.zoomTo(17),200,null);
+        CameraUpdate cameraLocation = CameraUpdateFactory.newLatLngZoom(CliftonGP,17);
+        mMap.animateCamera(cameraLocation);
     }
 }

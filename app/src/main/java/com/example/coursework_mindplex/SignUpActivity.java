@@ -20,10 +20,14 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class SignUpActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
+    public String passwordRegex = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{6,}$";
+    Pattern passwordValidation = Pattern.compile(passwordRegex);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +63,7 @@ public class SignUpActivity extends AppCompatActivity {
                                                 });
                                         Intent SUMenu = new Intent(SignUpActivity.this, MainMenu.class);
                                         SUMenu.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                        Toast.makeText(SignUpActivity.this,"Registration Complete!",Toast.LENGTH_LONG).show();
                                         startActivity(SUMenu);
                                         finish();
                                     }
@@ -76,7 +81,7 @@ public class SignUpActivity extends AppCompatActivity {
                                     }
                                 } else {
                                     // Log failure and send user a pop up to notify failure
-                                    Log.w("MainActivity",
+                                    Log.w("SignUpActivity",
                                             "createUserWithEmail:failure", task.getException());
                                     Toast.makeText(SignUpActivity.this,
                                             "Sign Up failed.",
@@ -97,12 +102,15 @@ public class SignUpActivity extends AppCompatActivity {
         String sFName = fname.getText().toString();
         String sLName = lname.getText().toString();
         String sRPassword = rpassword.getText().toString();
-        if (sRPassword.equals(sPassword)) {
-            signup(sEmail, sPassword, sFName, sLName);
-        } else {
-            Toast.makeText(SignUpActivity.this,
-                    "Passwords Do Not Match.",
-                    Toast.LENGTH_SHORT).show();
+        Matcher validationChecker = passwordValidation.matcher(sPassword);
+        if (validationChecker.matches()) {
+            if (sRPassword.equals(sPassword)) {
+                signup(sEmail, sPassword, sFName, sLName);
+            } else {
+                Toast.makeText(SignUpActivity.this, "Passwords Do Not Match.", Toast.LENGTH_SHORT).show();
+            }
+        }else{
+            Toast.makeText(SignUpActivity.this, "Password does not meet requirements.", Toast.LENGTH_SHORT).show();
         }
     }
 

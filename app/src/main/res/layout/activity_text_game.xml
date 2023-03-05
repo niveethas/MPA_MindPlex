@@ -55,9 +55,9 @@
 
         <Spinner
             android:id="@+id/spinner2"
-            android:popupBackground="?attr/bgGradientSecondary"
             android:layout_width="330dp"
             android:layout_height="68dp"
+            android:popupBackground="?attr/bgGradientSecondary"
             app:layout_constraintBottom_toTopOf="@+id/spinner3"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/spinner1" />
@@ -65,8 +65,8 @@
         <Spinner
             android:id="@+id/spinner3"
             android:layout_width="330dp"
-            android:popupBackground="?attr/bgGradientSecondary"
             android:layout_height="62dp"
+            android:popupBackground="?attr/bgGradientSecondary"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/spinner2" />
@@ -76,31 +76,16 @@
         android:id="@+id/nextBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="573dp"
         android:background="?attr/bgGradientSecondaryRnd"
         android:fontFamily="@font/source_sans_pro"
         android:onClick="reloadWords"
         android:text="Next"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/submitBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/submitBtn"
-        app:layout_constraintTop_toTopOf="@+id/submitBtn" />
-
-    <Button
-        android:id="@+id/submitBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="111dp"
-        android:background="?attr/bgGradientTertiaryRnd"
-        android:fontFamily="@font/source_sans_pro"
-        android:onClick="checkWords"
-        android:text="Submit"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/nextBtn"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView"

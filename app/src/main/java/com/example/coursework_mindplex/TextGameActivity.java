@@ -96,7 +96,7 @@ public class TextGameActivity extends AppCompatActivity {
         }
     }
 
-    public void checkWords(View view){
+    public void checkWords(){
         Spinner firstSpinner = findViewById(R.id.spinner1);
         Spinner secondSpinner =  findViewById(R.id.spinner2);
         Spinner thirdSpinner = findViewById(R.id.spinner3);
@@ -111,7 +111,7 @@ public class TextGameActivity extends AppCompatActivity {
     }
 
     public void reloadWords(View view){
-
+        checkWords();
         getWords();
     }
 

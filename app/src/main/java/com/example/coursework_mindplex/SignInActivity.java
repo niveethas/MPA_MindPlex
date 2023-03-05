@@ -27,9 +27,9 @@ public class SignInActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_in);
         FirebaseApp.initializeApp(this);
         mAuth = FirebaseAuth.getInstance();
+
     }
 
     public void signin(String email, String password){
