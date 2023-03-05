@@ -106,10 +106,6 @@ public class SignUpActivity extends AppCompatActivity {
         }
     }
 
-    public void SUCancelButtonClicked(View view){
-            Intent SUBack = new Intent(SignUpActivity.this, MainActivity.class);
-            startActivity(SUBack);
-    }
 
     public void backBtnClick(View view){
         Intent backMA = new Intent(SignUpActivity.this, MainActivity.class);

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+6.6<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -6,6 +6,22 @@
     android:layout_height="match_parent"
     android:background="@drawable/gold_gradient_background"
     tools:context=".SignUpActivity">
+
+    <TextView
+        android:id="@+id/signUpTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:fontFamily="@font/quicksand_bold"
+        android:gravity="center_horizontal"
+        android:text="Register A New Account"
+        android:textAlignment="center"
+        android:textColor="?attr/headingTextPrimary"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/backBtn9"
@@ -21,169 +37,173 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/RpasswordTxtbox"
-        android:layout_width="wrap_content"
+    <ScrollView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="96dp"
-        android:layout_marginTop="537dp"
-        android:layout_marginEnd="90dp"
-        android:ems="10"
-        android:fontFamily="@font/source_sans_pro"
-        android:inputType="textPassword"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="100dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/signUpTitle">
 
-    <EditText
-        android:id="@+id/passwordTxtbox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="427dp"
-        android:ems="10"
-        android:fontFamily="@font/source_sans_pro"
-        android:inputType="textPassword"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="@+id/RePasswordTxtbox"
-        app:layout_constraintStart_toStartOf="@+id/RePasswordTxtbox"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/source_sans_pro"
+            android:gravity="center_horizontal"
+            android:padding="10dp"
+            android:text="The password must have 1 capital letter, 1 number, 1 symbol" />
 
-    <EditText
-        android:id="@+id/emailTxtbox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="312dp"
-        android:ems="10"
-        android:fontFamily="@font/source_sans_pro"
-        android:inputType="textEmailAddress"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="@+id/PasswordTxtBox"
-        app:layout_constraintStart_toStartOf="@+id/PasswordTxtBox"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/FNameLabel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:fontFamily="@font/source_sans_pro"
+            android:gravity="center_horizontal"
+            android:padding="15dp"
+            android:text="First Name"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/signUpButton"
-        android:layout_width="80dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="228dp"
-        android:layout_marginTop="631dp"
-        android:layout_marginBottom="52dp"
-        android:background="@drawable/round_green_btn"
-        android:minWidth="88dip"
-        android:minHeight="48dip"
-        android:onClick="registrationButtonClicked"
-        android:text="Sign Up"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.126"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <EditText
+            android:id="@+id/FNameTxtbox"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:ems="10"
+            android:fontFamily="@font/source_sans_pro"
+            android:gravity="center_horizontal"
+            android:inputType="textPersonName"
+            android:padding="15dp"
+            android:textSize="16sp" />
 
-    <Button
-        android:id="@+id/cancelButton"
-        android:layout_width="81dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="631dp"
-        android:layout_marginEnd="228dp"
-        android:layout_marginBottom="52dp"
-        android:background="@drawable/round_grey_btn"
-        android:fontFamily="@font/source_sans_pro"
-        android:minWidth="88dip"
-        android:minHeight="48dip"
-        android:onClick="SUCancelButtonClicked"
-        android:text="Cancel"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.931"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/LNameLabel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:fontFamily="@font/source_sans_pro"
+            android:gravity="center_horizontal"
+            android:padding="15dp"
+            android:text="Last Name"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/RePasswordTxtbox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="509dp"
-        android:fontFamily="@font/source_sans_pro"
-        android:text="Re-type Password"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/RpasswordTxtbox"
-        app:layout_constraintStart_toStartOf="@+id/RpasswordTxtbox"
-        app:layout_constraintTop_toTopOf="parent" />
+        <EditText
+            android:id="@+id/LNameTxtbox"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:ems="10"
+            android:fontFamily="@font/source_sans_pro"
+            android:gravity="center_horizontal"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:padding="15dp"
+            android:textSize="16sp" />
 
-    <TextView
-        android:id="@+id/emailLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="280dp"
-        android:fontFamily="@font/source_sans_pro"
-        android:text="Email"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/emailTxtbox"
-        app:layout_constraintStart_toStartOf="@+id/emailTxtbox"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/emailLabel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:fontFamily="@font/source_sans_pro"
+            android:gravity="center_horizontal"
+            android:padding="15dp"
+            android:text="Email"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/LNameLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="172dp"
-        android:fontFamily="@font/source_sans_pro"
-        android:text="Last Name"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/LNameTxtbox"
-        app:layout_constraintStart_toStartOf="@+id/LNameTxtbox"
-        app:layout_constraintTop_toTopOf="parent" />
+        <EditText
+            android:id="@+id/emailTxtbox"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:ems="10"
+            android:fontFamily="@font/source_sans_pro"
+            android:gravity="center_horizontal"
+            android:inputType="textEmailAddress"
+            android:minHeight="48dp"
+            android:padding="15dp"
+            android:textSize="16sp" />
 
-    <TextView
-        android:id="@+id/FNameLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:fontFamily="@font/source_sans_pro"
-        android:text="First Name"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/FNameTxtbox"
-        app:layout_constraintStart_toStartOf="@+id/FNameTxtbox"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/PasswordTxtBox"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:fontFamily="@font/source_sans_pro"
+            android:gravity="center_horizontal"
+            android:padding="15dp"
+            android:text="Password"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/PasswordTxtBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="397dp"
-        android:fontFamily="@font/source_sans_pro"
-        android:text="Password"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/passwordTxtbox"
-        app:layout_constraintStart_toStartOf="@+id/passwordTxtbox"
-        app:layout_constraintTop_toTopOf="parent" />
+        <EditText
+            android:id="@+id/passwordTxtbox"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:ems="10"
+            android:fontFamily="@font/source_sans_pro"
+            android:gravity="center_horizontal"
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            android:padding="15dp"
+            android:textSize="16sp" />
 
-    <EditText
-        android:id="@+id/LNameTxtbox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="204dp"
-        android:ems="10"
-        android:fontFamily="@font/source_sans_pro"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="@+id/emailLabel"
-        app:layout_constraintStart_toStartOf="@+id/emailLabel"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/RePasswordTxtbox"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:fontFamily="@font/source_sans_pro"
+            android:gravity="center_horizontal"
+            android:padding="15dp"
+            android:text="Re-type Password"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/FNameTxtbox"
-        android:layout_width="219dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="105dp"
-        android:ems="10"
-        android:fontFamily="@font/source_sans_pro"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="@+id/LNameLabel"
-        app:layout_constraintStart_toStartOf="@+id/LNameLabel"
-        app:layout_constraintTop_toTopOf="parent" />
+        <EditText
+            android:id="@+id/RpasswordTxtbox"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:ems="10"
+            android:fontFamily="@font/source_sans_pro"
+            android:gravity="center_horizontal"
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            android:padding="15dp"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/signUpButton"
+            android:layout_width="80dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:layout_margin="45dp"
+            android:background="@drawable/round_green_btn"
+            android:gravity="center"
+            android:minWidth="88dip"
+            android:minHeight="48dip"
+            android:onClick="registrationButtonClicked"
+            android:text="Sign Up"
+            android:textStyle="bold" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

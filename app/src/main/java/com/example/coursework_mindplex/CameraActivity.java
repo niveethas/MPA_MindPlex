@@ -70,7 +70,7 @@ public class CameraActivity extends AppCompatActivity {
     private void bindImageAnalysis(@NonNull ProcessCameraProvider cameraProvider) {
         ImageAnalysis imageAnalysis =
                 new ImageAnalysis.Builder().setTargetResolution(new Size(1280, 720))
-                        .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST).build();
+                        .setBackpressureStrategy(ImageAnalysis.STRATEGY_BLOCK_PRODUCER).build();
         imageAnalysis.setAnalyzer(ContextCompat.getMainExecutor(this), new ImageAnalysis.Analyzer() {
             @Override
             public void analyze(@NonNull ImageProxy image) {
@@ -88,14 +88,14 @@ public class CameraActivity extends AppCompatActivity {
                 image.close();
             }
         });
-        OrientationEventListener orientationEventListener = new OrientationEventListener(this) {
+       /* OrientationEventListener orientationEventListener = new OrientationEventListener(this) {
             @Override
             public void onOrientationChanged(int orientation) {
 
 
             }
         };
-        orientationEventListener.enable();
+        orientationEventListener.enable();*/
 
         Preview preview = new Preview.Builder().build();
         CameraSelector cameraSelector = new CameraSelector.Builder()

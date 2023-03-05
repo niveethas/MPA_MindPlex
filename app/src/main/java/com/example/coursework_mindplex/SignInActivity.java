@@ -89,4 +89,29 @@ public class SignInActivity extends AppCompatActivity {
         startActivity(backMM);
 
     }
+
+    public void forgotPasswordSend(View view) {
+        EditText email = findViewById(R.id.emailTxtboxSI);
+        String sEmail = email.getText().toString();
+
+        if (sEmail.isEmpty()) {
+            Toast.makeText(SignInActivity.this, "Enter address to send reset email", Toast.LENGTH_SHORT).show();
+        }
+        else
+        {
+            FirebaseAuth.getInstance().sendPasswordResetEmail(sEmail)
+                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful()) {
+                                Toast.makeText(SignInActivity.this, "Password reset email sent", Toast.LENGTH_SHORT).show();
+                            }else{
+                                Toast.makeText(SignInActivity.this, "No existing accounts with this email", Toast.LENGTH_SHORT).show();
+
+                            }
+                        }
+                    });
+
+        }
+    }
 }

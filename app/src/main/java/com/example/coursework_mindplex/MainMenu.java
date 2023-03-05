@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -19,6 +20,7 @@ public class MainMenu extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     private FirebaseAuth mAuth;
     public String uid;
+    public int backPressCounter = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +55,7 @@ public class MainMenu extends AppCompatActivity {
            TextView intro = findViewById(R.id.introQText);
            intro.setText("Hi, what would you like to do today?");
         }
+
     }
 
 
@@ -76,6 +79,18 @@ public class MainMenu extends AppCompatActivity {
         startActivity(MMAccount);
     }
 
+    public void onBackPressed(){
+
+        if (backPressCounter > 0) {
+            Intent exitApp = new Intent(Intent.ACTION_MAIN);
+            exitApp.addCategory(Intent.CATEGORY_HOME);
+            exitApp.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(exitApp);
+        }else{
+            Toast.makeText(this, "Press again to exit the app", Toast.LENGTH_SHORT).show();
+            backPressCounter =+ 1;
+        }
+    }
 
 
 

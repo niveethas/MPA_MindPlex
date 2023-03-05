@@ -11,7 +11,7 @@ import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.*;
 
 public class MainActivity extends AppCompatActivity {
-
+    private FirebaseAuth startUpAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -97,7 +97,9 @@ public class CharityInfoActivity extends AppCompatActivity {
 
     public void openCharityNum2(View view){
         Intent phoneCTL = new Intent(Intent.ACTION_DIAL);
-        phoneCTL.setData(Uri.parse("sms:741741"));
+        phoneCTL.setData(Uri.parse("tel:07745388490"));
+        phoneCTL.putExtra("sms_body", "Hi! Could I please talk to someone?");
+        phoneCTL.setType("vnd.android-dir/mms-sms");
         startActivity(phoneCTL);
 
     }

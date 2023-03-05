@@ -48,12 +48,14 @@
             android:id="@+id/spinner1"
             android:layout_width="330dp"
             android:layout_height="68dp"
+            android:popupBackground="?attr/bgGradientSecondary"
             app:layout_constraintBottom_toTopOf="@+id/spinner2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Spinner
             android:id="@+id/spinner2"
+            android:popupBackground="?attr/bgGradientSecondary"
             android:layout_width="330dp"
             android:layout_height="68dp"
             app:layout_constraintBottom_toTopOf="@+id/spinner3"
@@ -63,6 +65,7 @@
         <Spinner
             android:id="@+id/spinner3"
             android:layout_width="330dp"
+            android:popupBackground="?attr/bgGradientSecondary"
             android:layout_height="62dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"

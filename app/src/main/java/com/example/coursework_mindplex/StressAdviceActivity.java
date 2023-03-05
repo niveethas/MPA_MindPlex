@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,13 +15,10 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.storage.*;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -56,13 +52,8 @@ public class StressAdviceActivity extends AppCompatActivity {
         FirebaseApp.initializeApp(this);
         mAuth = FirebaseAuth.getInstance();
         storageRef = storage.getReference();
-        getAnxietyAdviceText();
-        getStressAdviceText();
-        getImages();
-        displayTexts();
-        displayImages();
+        getLayoutContent();
     }
-
 
     public void getImages() {
         imagesURLs.add("https://firebasestorage.googleapis.com/v0/b/coursework-mindplex.appspot.com/o/4824.jpg?alt=media&token=3da2cc18-0a55-47e7-a262-684f98824f77");
@@ -83,7 +74,7 @@ public class StressAdviceActivity extends AppCompatActivity {
 
     }
 
-    public void getAnxietyAdviceText(){
+    public Task<Void> getAnxietyAdviceText(){
         db.collection("Advice").document("Anxiety").get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -102,10 +93,10 @@ public class StressAdviceActivity extends AppCompatActivity {
                 }
             }
         });
-
+        return null;
     }
 
-    public void getStressAdviceText(){
+    public Task<DocumentSnapshot> getStressAdviceText(){
             db.collection("Advice").document("Stress").get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -114,7 +105,6 @@ public class StressAdviceActivity extends AppCompatActivity {
                         if (document.exists()) {
                             String data = document.getString("Text");
                             stressAdvice = data.split("/");
-
                         } else {
                             Log.d("MainActivity", "No such document");
                         }
@@ -124,7 +114,6 @@ public class StressAdviceActivity extends AppCompatActivity {
                     }
                 }
             });
-
     }
 
     public void displayTexts() {
@@ -138,7 +127,7 @@ public class StressAdviceActivity extends AppCompatActivity {
                     if (document.exists()) {
                         String data = document.getString("Anxiety Advice");
                         Log.d("SuccessMsg:", data);
-                        if (data == "true"){
+                        if (data.equals("true")){
                             anxietyAdviceToggle = true;
                         }else{
                             anxietyAdviceToggle = false;
@@ -151,7 +140,6 @@ public class StressAdviceActivity extends AppCompatActivity {
                         try {
 
                             if (anxietyAdviceToggle = true) {
-                                getAnxietyAdviceText();
                                 stressText1.setText(stressAdvice[stressPick()]);
                                 stressText2.setText(stressAdvice[stressPick()]);
                                 stressText3.setText(stressAdvice[stressPick()]);
@@ -160,7 +148,6 @@ public class StressAdviceActivity extends AppCompatActivity {
                                 adviceText2.setText(anxietyAdvice[anxietyPick()]);
 
                             } else {
-                                getStressAdviceText();
                                 adviceText1.clearComposingText();
                                 adviceText2.clearComposingText();
 
@@ -230,5 +217,25 @@ public class StressAdviceActivity extends AppCompatActivity {
             return resultI;
         }
     }
+
+    public void getLayoutContent() {
+        getStressAdviceText().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                getAnxietyAdviceText().addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        displayTexts();
+                        getImages();
+                        displayImages();
+                    }
+                });
+            }
+        });
+    }
+
+
+
+
 
 }

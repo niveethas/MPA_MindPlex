@@ -51,7 +51,6 @@
         android:layout_marginStart="20dp"
         android:background="@drawable/backarrow"
         android:gravity="top|left"
-        android:text="TextView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
