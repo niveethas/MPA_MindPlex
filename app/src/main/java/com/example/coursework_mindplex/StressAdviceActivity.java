@@ -49,7 +49,6 @@ public class StressAdviceActivity extends AppCompatActivity {
         }
 
         setContentView(R.layout.activity_stress_advice);
-        FirebaseApp.initializeApp(this);
         mAuth = FirebaseAuth.getInstance();
         storageRef = storage.getReference();
         getLayoutContent();
@@ -74,7 +73,7 @@ public class StressAdviceActivity extends AppCompatActivity {
 
     }
 
-    public Task<Void> getAnxietyAdviceText(){
+    public void getAnxietyAdviceText(){
         db.collection("Advice").document("Anxiety").get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -93,10 +92,10 @@ public class StressAdviceActivity extends AppCompatActivity {
                 }
             }
         });
-        return null;
+
     }
 
-    public Task<DocumentSnapshot> getStressAdviceText(){
+    public void getStressAdviceText(){
             db.collection("Advice").document("Stress").get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -219,19 +218,11 @@ public class StressAdviceActivity extends AppCompatActivity {
     }
 
     public void getLayoutContent() {
-        getStressAdviceText().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                getAnxietyAdviceText().addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        displayTexts();
-                        getImages();
-                        displayImages();
-                    }
-                });
-            }
-        });
+        getAnxietyAdviceText();
+        getStressAdviceText();
+        getImages();
+        displayImages();
+        displayTexts();
     }
 
 

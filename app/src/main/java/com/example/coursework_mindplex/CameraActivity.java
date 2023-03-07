@@ -10,19 +10,10 @@ import android.graphics.YuvImage;
 import android.media.Image;
 import android.os.Bundle;
 import android.util.Size;
-import android.view.OrientationEventListener;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import android.graphics.Bitmap;
-import android.os.AsyncTask;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.camera.core.CameraSelector;
 import androidx.camera.core.ImageAnalysis;
@@ -43,7 +34,6 @@ import java.util.concurrent.ExecutionException;
 public class CameraActivity extends AppCompatActivity {
     private PreviewView previewView;
     private ListenableFuture<ProcessCameraProvider> cameraProviderFuture;
-    private TextView textView;
 
 
     @Override
@@ -77,55 +67,48 @@ public class CameraActivity extends AppCompatActivity {
                 //Code derived from: https://stackoverflow.com/questions/56772967/converting-imageproxy-to-bitmap
                 @SuppressLint("UnsafeOptInUsageError") Image imageFrame = image.getImage();
                 assert imageFrame != null;
-                Bitmap bitmapFrame = toBitmap(imageFrame);
-                new ColorFinder(new ColorFinder.CallbackInterface() {
+                //ensures the image frame is never null, if so there is no need to analyse color
+                Bitmap bitmapFrame = YUVtoBitmap(imageFrame);
+                //Image analysis returns images in YUV format, Bitmap is required for finding the main colour
+                new ColourFinder(new ColourFinder.CallbackInterface() {
                     @Override
                     public void onCompleted(String color) {
                         TextView screenText = findViewById(R.id.colourText);
                         screenText.setText("Colour found: "+color);
                     }
-                }).findDominantColor(bitmapFrame);
+                }).findColour(bitmapFrame);
                 image.close();
             }
         });
-       /* OrientationEventListener orientationEventListener = new OrientationEventListener(this) {
-            @Override
-            public void onOrientationChanged(int orientation) {
-
-
-            }
-        };
-        orientationEventListener.enable();*/
 
         Preview preview = new Preview.Builder().build();
-        CameraSelector cameraSelector = new CameraSelector.Builder()
-                .requireLensFacing(CameraSelector.LENS_FACING_BACK).build();
+        CameraSelector cameraSelector = new CameraSelector.Builder().requireLensFacing(CameraSelector.LENS_FACING_BACK).build();
         preview.setSurfaceProvider(previewView.getSurfaceProvider());
-        cameraProvider.bindToLifecycle((LifecycleOwner)this, cameraSelector,
-                imageAnalysis, preview);
+        cameraProvider.bindToLifecycle((LifecycleOwner)this, cameraSelector, imageAnalysis, preview);
     }
 
-    private Bitmap toBitmap(Image image) {
+    private Bitmap YUVtoBitmap(Image image) {
+        //Code derived from: https://stackoverflow.com/questions/56772967/converting-imageproxy-to-bitmap
         Image.Plane[] planes = image.getPlanes();
-        ByteBuffer yBuffer = planes[0].getBuffer();
-        ByteBuffer uBuffer = planes[1].getBuffer();
-        ByteBuffer vBuffer = planes[2].getBuffer();
+        ByteBuffer y = planes[0].getBuffer();
+        ByteBuffer u = planes[1].getBuffer();
+        ByteBuffer v = planes[2].getBuffer();
 
-        int ySize = yBuffer.remaining();
-        int uSize = uBuffer.remaining();
-        int vSize = vBuffer.remaining();
+        int ySize = y.remaining();
+        int uSize = u.remaining();
+        int vSize = v.remaining();
 
         byte[] nv21 = new byte[ySize + uSize + vSize];
         //U and V are swapped
-        yBuffer.get(nv21, 0, ySize);
-        vBuffer.get(nv21, ySize, vSize);
-        uBuffer.get(nv21, ySize + vSize, uSize);
+        y.get(nv21, 0, ySize);
+        v.get(nv21, ySize, vSize);
+        u.get(nv21, ySize + vSize, uSize);
 
         YuvImage yuvImage = new YuvImage(nv21, ImageFormat.NV21, image.getWidth(), image.getHeight(), null);
-        ByteArrayOutputStream out = new ByteArrayOutputStream();
-        yuvImage.compressToJpeg(new Rect(0, 0, yuvImage.getWidth(), yuvImage.getHeight()), 75, out);
-
-        byte[] imageBytes = out.toByteArray();
+        ByteArrayOutputStream outByteImage = new ByteArrayOutputStream();
+        yuvImage.compressToJpeg(new Rect(0, 0, yuvImage.getWidth(), yuvImage.getHeight()), 75, outByteImage);
+        //the YUV image is outputted as a JPEG, the bytes of the output can be converted to a Bitmap.
+        byte[] imageBytes = outByteImage.toByteArray();
         return BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
     }
 

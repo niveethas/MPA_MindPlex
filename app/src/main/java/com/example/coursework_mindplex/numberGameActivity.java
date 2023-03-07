@@ -12,20 +12,11 @@ import android.widget.Toast;
 import java.util.Random;
 
 public class numberGameActivity extends AppCompatActivity {
-    private int num1; // the numbers on the left and right buttons
+    private int num1;
     private int num2;
     private int num3;
     int largest;
-
-    public void clickNumLeft(View view) {
-        check(num1,num2,num3, "left");
-    }
-    public void clickNumRight(View view) {
-        check(num1,num2,num3, "right");
-    }
-    public void clickNumMiddle(View view) {
-        check(num1,num2,num3, "middle");
-    }
+    public Toast outcomeToast;
 
 
     @Override
@@ -39,10 +30,11 @@ public class numberGameActivity extends AppCompatActivity {
 
         }
         setContentView(R.layout.activity_number_game);
-        roll();
+        displayNumbers();
+        outcomeToast= Toast.makeText( numberGameActivity.this  , "" , Toast.LENGTH_SHORT );
     }
 
-    private void roll(){
+    private void displayNumbers(){
         Random r = new Random();
         num1 = r.nextInt(20);
         num2 = r.nextInt(20);
@@ -68,7 +60,6 @@ public class numberGameActivity extends AppCompatActivity {
         }else{
             largest = c;
         }
-        Toast outcomeToast = Toast.makeText( this  , "" , Toast.LENGTH_SHORT );
         if (button.equals("left") && largest == a){
             outcomeToast.setText("You clicked " + largest + ", which is the largest number!");
             outcomeToast.show();
@@ -84,7 +75,7 @@ public class numberGameActivity extends AppCompatActivity {
             outcomeToast.show();
         }
 
-        roll();
+        displayNumbers();
     }
 
     public void backBtnClick(View view){
@@ -92,5 +83,15 @@ public class numberGameActivity extends AppCompatActivity {
         backGM.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(backGM);
 
+    }
+
+    public void clickNumLeft(View view) {
+        check(num1,num2,num3, "left");
+    }
+    public void clickNumRight(View view) {
+        check(num1,num2,num3, "right");
+    }
+    public void clickNumMiddle(View view) {
+        check(num1,num2,num3, "middle");
     }
 }

@@ -5,6 +5,7 @@ import static com.google.android.gms.maps.CameraUpdateFactory.newLatLng;
 import androidx.fragment.app.FragmentActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -23,13 +24,17 @@ public class localCharityMapActivity extends FragmentActivity implements OnMapRe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityLocalCharityMapBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        try {
+            binding = ActivityLocalCharityMapBinding.inflate(getLayoutInflater());
+            setContentView(binding.getRoot());
 
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
+            // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+            SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                    .findFragmentById(R.id.map);
+            mapFragment.getMapAsync(this);
+        }catch (Exception e){
+            Log.w("MAP ERROR",e);
+        }
     }
 
     /**
@@ -57,10 +62,7 @@ public class localCharityMapActivity extends FragmentActivity implements OnMapRe
         mMap.addMarker(new MarkerOptions().position(CliftonGP).title("Clifton Medical Practice"));
         mMap.addMarker(new MarkerOptions().position(JohnRyleGP).title("John Ryle Medical Practice"));
 
-        //mMap.moveCamera();
-       // mMap.animateCamera(CameraUpdateFactory.zoomIn(CygnetHosp));
-       // mMap.animateCamera(CameraUpdateFactory.zoomTo(17),200,null);
-        CameraUpdate cameraLocation = CameraUpdateFactory.newLatLngZoom(CliftonGP,17);
+        CameraUpdate cameraLocation = CameraUpdateFactory.newLatLngZoom(CliftonGP,11);
         mMap.animateCamera(cameraLocation);
     }
 }

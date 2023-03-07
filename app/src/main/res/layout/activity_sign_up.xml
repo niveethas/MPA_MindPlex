@@ -41,6 +41,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="90dp"
+        android:isScrollContainer="true"
         app:layout_constraintTop_toTopOf="parent">
 
     </ScrollView>
@@ -48,6 +49,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:isScrollContainer="true"
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signUpTitle">
@@ -62,7 +64,8 @@
             android:fontFamily="@font/source_sans_pro"
             android:gravity="center_horizontal"
             android:padding="10dp"
-            android:text="The password must have 1 capital letter, 1 number, 1 symbol and be at least 6 characters in length" />
+            android:text="The password must have 1 capital letter, 1 number, 1 symbol and be at least 6 characters in length"
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/FNameLabel"
@@ -73,6 +76,7 @@
             android:gravity="center_horizontal"
             android:padding="15dp"
             android:text="First Name"
+            android:textColor="@color/black"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -86,6 +90,7 @@
             android:gravity="center_horizontal"
             android:inputType="textPersonName"
             android:padding="15dp"
+            android:textColor="@color/black"
             android:textSize="16sp" />
 
         <TextView
@@ -97,6 +102,7 @@
             android:gravity="center_horizontal"
             android:padding="15dp"
             android:text="Last Name"
+            android:textColor="@color/black"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -111,6 +117,7 @@
             android:inputType="textPersonName"
             android:minHeight="48dp"
             android:padding="15dp"
+            android:textColor="@color/black"
             android:textSize="16sp" />
 
         <TextView
@@ -122,6 +129,7 @@
             android:gravity="center_horizontal"
             android:padding="15dp"
             android:text="Email"
+            android:textColor="@color/black"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -136,6 +144,7 @@
             android:inputType="textEmailAddress"
             android:minHeight="48dp"
             android:padding="15dp"
+            android:textColor="@color/black"
             android:textSize="16sp" />
 
         <TextView
@@ -147,6 +156,7 @@
             android:gravity="center_horizontal"
             android:padding="15dp"
             android:text="Password"
+            android:textColor="@color/black"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -161,6 +171,7 @@
             android:inputType="textPassword"
             android:minHeight="48dp"
             android:padding="15dp"
+            android:textColor="@color/black"
             android:textSize="16sp" />
 
         <TextView
@@ -173,6 +184,7 @@
             android:padding="15dp"
             android:text="Re-type Password"
             android:textAlignment="center"
+            android:textColor="@color/black"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -187,6 +199,7 @@
             android:inputType="textPassword"
             android:minHeight="48dp"
             android:padding="15dp"
+            android:textColor="@color/black"
             android:textSize="16sp" />
 
         <Button

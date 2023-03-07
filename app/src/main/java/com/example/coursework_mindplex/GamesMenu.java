@@ -37,7 +37,7 @@ public class GamesMenu extends AppCompatActivity {
     }
 
     public void backBtnClick(View view){
-        Intent backGM = new Intent(GamesMenu.this, GamesMenu.class);
+        Intent backGM = new Intent(GamesMenu.this, MainMenu.class);
         backGM.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(backGM);
 

@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -32,7 +33,6 @@ public class TextGameActivity extends AppCompatActivity {
     public StringRequest newSR;
     private String URL = "https://random-word-api.herokuapp.com/word?number=3";
     public String[] currWordList;
-    public List<String> currWordList1 = new ArrayList<>();
 
 
     @Override
@@ -60,7 +60,7 @@ public class TextGameActivity extends AppCompatActivity {
             public void onResponse(String response) {
                 response = response.replace("\"","");
                 response= response.replace("[","");
-               response = response.replace("]","");
+                response = response.replace("]","");
                 currWordList=response.split(",");
                 displayWords();
             }
@@ -81,7 +81,7 @@ public class TextGameActivity extends AppCompatActivity {
            Spinner secondSpinner = (Spinner) findViewById(R.id.spinner2);
            Spinner thirdSpinner = (Spinner) findViewById(R.id.spinner3);
 
-           //https://stackoverflow.com/questions/11920754/android-fill-spinner-from-java-code-programmatically
+           //Code has been derived from: https://stackoverflow.com/questions/11920754/android-fill-spinner-from-java-code-programmatically
            ArrayAdapter<String> adapter = new ArrayAdapter<String>(
                    TextGameActivity.this, android.R.layout.simple_spinner_item, currWordList
            );
@@ -97,13 +97,25 @@ public class TextGameActivity extends AppCompatActivity {
     }
 
     public void checkWords(){
-        Spinner firstSpinner = findViewById(R.id.spinner1);
-        Spinner secondSpinner =  findViewById(R.id.spinner2);
-        Spinner thirdSpinner = findViewById(R.id.spinner3);
+        Spinner firstSpinner = (Spinner) findViewById(R.id.spinner1);
+        Spinner secondSpinner = (Spinner) findViewById(R.id.spinner2);
+        Spinner thirdSpinner = (Spinner) findViewById(R.id.spinner3);
+
         Arrays.sort(currWordList);
-        if ((firstSpinner.getSelectedItem().toString().equals(currWordList[0]))&&
-                (secondSpinner.getSelectedItem().toString().equals(currWordList[1]))&&
-                (thirdSpinner.getSelectedItem().toString().equals(currWordList[2]))){
+        String sort1 = currWordList[0];
+        String sort2 = currWordList[1];
+        String sort3 = currWordList[2];
+        TextView spinnerText = (TextView)firstSpinner.getSelectedView();
+        String spinner1Text = spinnerText.getText().toString();
+        spinnerText = (TextView)secondSpinner.getSelectedView();
+        String spinner2Text = spinnerText.getText().toString();
+        spinnerText = (TextView)thirdSpinner.getSelectedView();
+        String spinner3Text = spinnerText.getText().toString();
+
+
+        if ((spinner1Text.equals(sort1))&&
+                (spinner2Text.equals(sort2))&&
+                (spinner3Text.equals(sort3))){
             Toast.makeText(TextGameActivity.this, "Correct!",Toast.LENGTH_SHORT).show();
         }else{
             Toast.makeText(TextGameActivity.this, "That's not quite right",Toast.LENGTH_SHORT).show();

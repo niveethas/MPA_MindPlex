@@ -8,12 +8,16 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class ChangePersonalInfoActivity extends AppCompatActivity {
@@ -34,6 +38,33 @@ public class ChangePersonalInfoActivity extends AppCompatActivity {
         }
         setContentView(R.layout.activity_change_personal_info);
         uId = user.getUid();
+        setInfoText();
+    }
+
+    public void setInfoText(){
+        EditText newFname = findViewById(R.id.editFNameTxt);
+        EditText newLname = findViewById(R.id.editLNameTxt);
+
+        //Customise text with current user's name
+        try {
+            db.collection("Users").document(uId).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                    if (task.isSuccessful()) {
+                        DocumentSnapshot document = task.getResult();
+                        if (document.exists()) {
+                            String name = document.getString("First Name");
+                            String surname = document.getString("Last Name");
+                            newFname.setText(name);
+                            newLname.setText(surname);
+                        }
+                    }
+                }
+            });
+        }catch (Exception e) {
+            Log.w("Change Activity",e);
+        }
+
     }
 
 
@@ -47,7 +78,7 @@ public class ChangePersonalInfoActivity extends AppCompatActivity {
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
-                            Toast.makeText(ChangePersonalInfoActivity.this, "Name Updated", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ChangePersonalInfoActivity.this, "First Name Updated", Toast.LENGTH_SHORT).show();
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
@@ -56,14 +87,15 @@ public class ChangePersonalInfoActivity extends AppCompatActivity {
                             Log.w("Personalisation", "Error updating document", e);
                         }
                     });
+
         }
         if (!toString().valueOf(newLname.getText()).isEmpty()) {
             db.collection("Users").document(uId)
-                    .update("Last Name", toString().valueOf(newFname.getText()))
+                    .update("Last Name", toString().valueOf(newLname.getText()))
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
-                            Toast.makeText(ChangePersonalInfoActivity.this, "Name Updated", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ChangePersonalInfoActivity.this, "Last Name Updated", Toast.LENGTH_SHORT).show();
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {

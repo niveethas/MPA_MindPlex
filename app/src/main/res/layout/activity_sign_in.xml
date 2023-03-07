@@ -41,6 +41,7 @@
                 android:layout_marginTop="61dp"
                 android:fontFamily="@font/source_sans_pro"
                 android:text="Email"
+                android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@+id/emailTxtboxSI"
@@ -54,6 +55,7 @@
                 android:layout_marginTop="65dp"
                 android:fontFamily="@font/source_sans_pro"
                 android:text="Password"
+                android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@+id/passwordTxtboxSI"
@@ -79,6 +81,7 @@
                 android:layout_marginTop="30dp"
                 android:ems="10"
                 android:inputType="textEmailAddress"
+                android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="@+id/passwordLabelSI"
                 app:layout_constraintStart_toStartOf="@+id/passwordLabelSI"
                 app:layout_constraintTop_toBottomOf="@+id/emailLabelSI" />
@@ -91,6 +94,7 @@
                 android:ems="10"
                 android:inputType="textPassword"
                 android:minHeight="48dp"
+                android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="@+id/forgotPasswordText"
                 app:layout_constraintStart_toStartOf="@+id/forgotPasswordText"
                 app:layout_constraintTop_toBottomOf="@+id/passwordLabelSI" />

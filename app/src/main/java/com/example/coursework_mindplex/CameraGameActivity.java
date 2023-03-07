@@ -65,10 +65,10 @@ public class CameraGameActivity extends AppCompatActivity {
                                 status = document.getString("Camera");
                             }
                             if (status.equals("true")) {
-                                if (hasCameraPermission()) {
-                                    enableCamera();
+                                if (checkPermissions()) {
+                                    allowCamera();
                                 } else {
-                                    requestPermission();
+                                    requestPermissions();
                                 }
                             }else{
                                 Toast.makeText(CameraGameActivity.this, "Please change camera permissions to play!", Toast.LENGTH_SHORT).show();
@@ -93,6 +93,7 @@ public class CameraGameActivity extends AppCompatActivity {
     }
 
     public int randomColor (){
+        //code derived from: https://stackoverflow.com/questions/5271598/java-generate-random-number-between-two-given-values
         Random r = new Random();
         int low = 0;
         int high = 8;
@@ -101,14 +102,14 @@ public class CameraGameActivity extends AppCompatActivity {
         return result;
     }
 
-    private boolean hasCameraPermission() {
+    private boolean checkPermissions() {
         return ContextCompat.checkSelfPermission(
                 this,
                 Manifest.permission.CAMERA
         ) == PackageManager.PERMISSION_GRANTED;
     }
 
-    private void requestPermission() {
+    private void requestPermissions() {
         ActivityCompat.requestPermissions(
                 this,
                 CAMERA_PERMISSION,
@@ -116,9 +117,9 @@ public class CameraGameActivity extends AppCompatActivity {
         );
     }
 
-    private void enableCamera() {
-        Intent intent = new Intent(this, CameraActivity.class);
-        startActivity(intent);
+    private void allowCamera() {
+        Intent cameraA = new Intent(this, CameraActivity.class);
+        startActivity(cameraA);
     }
 
 
